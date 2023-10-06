@@ -1,0 +1,66 @@
+@import "../../styles/partials/global";
+
+.header {
+  padding: 0px $mobile-padding-between-components;
+
+  &__brainFlixLogoWrapper {
+    padding: $mobile-padding-between-components 0px;
+
+    &-logo {
+      height: 25px;
+      width: 120px;
+    }
+  }
+
+  &__search {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $mobile-padding-between-components;
+  }
+
+  &__searchInput {
+    height: 40px;
+    width: 75%;
+    border-radius: 4px;
+    border: 1px solid $Silver;
+    background: url("../../assets/images/icons/search.svg") no-repeat left;
+    padding-left: 25px;
+    font-family: 'AvenirNext-Bold';
+    @include text-styles(10px, 20px, 700);
+    
+    &::placeholder {
+      color: $BrainFlix-Black;
+    }
+  }
+
+  &__profilePic {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+  }
+
+  &__upload {
+    padding-bottom: $mobile-padding-between-components;
+  }
+
+  &__uploadButton {
+    height: 40px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: $BrainFlix-Blue;
+    color: $White;
+    background-image: url("../../assets/images/icons/upload.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+    font-family: 'AvenirNext-Bold';
+    @include text-styles(10px, 20px, 700);
+
+    &:hover {
+      background-color: $BrainFlix-DarkBlue;
+    }
+  }
+
+  &__uploadProfilePicWrapper {
+    display: none;
+  }
+}
