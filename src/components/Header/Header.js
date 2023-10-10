@@ -12,20 +12,26 @@ function Header() {
           className="header__brainFlixLogoWrapper-logo"
         />
       </div>
-      <div className="header__search">
-        <input className="header__searchInput" placeholder="Search"></input>
-        <div className="header__profilepicWrapper">
-          <img
-            src={ProfilePic}
-            alt="Profile Pic"
-            className="header__profilePic"
-          ></img>
+      <div className="header__mainNavigation">
+        <div className="header__search">
+          <input className="header__searchInput" placeholder="Search"></input>
+          <div className="header__profilepicWrapper">
+            <img
+              src={ProfilePic}
+              alt="Profile Pic"
+              className="header__profilePic"
+            ></img>
+          </div>
         </div>
-      </div>
-      <div className="header__upload">
-        <button className="header__uploadButton">UPLOAD</button>
-        <div className="header__uploadProfilePicWrapper">
-          <img src={ProfilePic} alt="Profile Pic"></img>
+        <div className="header__upload">
+          <button className="header__uploadButton">UPLOAD</button>
+          <div className="header__uploadProfilePicWrapper">
+            <img
+              src={ProfilePic}
+              alt="Profile Pic"
+              className="header__profilePic"
+            ></img>
+          </div>
         </div>
       </div>
     </header>
