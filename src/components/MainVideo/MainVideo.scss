@@ -1,0 +1,19 @@
+@import "../../styles/partials/global";
+
+.mainVideo {
+  aspect-ratio: 16/9;
+  background-color: $BrainFlix-DarkBlack;
+
+  @include tablet {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  @include desktop {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  &__video {
+    width: 100%;
+  }
+}
