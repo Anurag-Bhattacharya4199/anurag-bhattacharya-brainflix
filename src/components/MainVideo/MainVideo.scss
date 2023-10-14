@@ -1,7 +1,6 @@
 @import "../../styles/partials/global";
 
 .mainVideo {
-  aspect-ratio: 16/9;
   background-color: $BrainFlix-DarkBlack;
 
   @include tablet {
@@ -14,6 +13,7 @@
     padding-right: 100px;
   }
   &__video {
+    aspect-ratio: 16/9;
     width: 100%;
   }
 }

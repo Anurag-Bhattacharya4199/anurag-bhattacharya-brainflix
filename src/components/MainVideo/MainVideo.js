@@ -1,14 +1,15 @@
 import "./MainVideo.scss";
 
 function MainVideo(props) {
-  const { mainVideoData } = props;
+  const { image, video } = props.mainVideoData;
+
   return (
     <section className="mainVideo">
       <video
-        poster={mainVideoData.image}
+        poster={image}
         className="mainVideo__video"
         controls
-        src={mainVideoData.video}
+        src={video}
       ></video>
     </section>
   );

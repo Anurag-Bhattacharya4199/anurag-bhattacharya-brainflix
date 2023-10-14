@@ -2,9 +2,11 @@ import "./MainVideoCommentsList.scss";
 import MainVideoComment from "../MainVideoComment/MainVideoComment";
 
 function MainVideoCommentsList(props) {
+  const { comments } = props.mainVideoData;
+
   return (
     <section className="mainVideoCommentsList">
-      {props.mainVideoData.comments.map((comment, index) => (
+      {comments.map((comment, index) => (
         <MainVideoComment
           key={index}
           name={comment.name}

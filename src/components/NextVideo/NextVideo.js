@@ -1,13 +1,15 @@
 function NextVideo(props) {
+  const { videoId, title, channel } = props;
+
   return (
     <article
       className="nextVideoContent"
-      onClick={() => props.changeMainVideoData(props.videoId)}
+      onClick={() => props.changeMainVideoData(videoId)}
     >
-      <img src={props.image} alt="Video Image" />
+      <img src={props.image} alt="Video Poster" />
       <div className="nextVideoContent__titleWrapper">
-        <h1 className="nextVideoContent__title">{props.title}</h1>
-        <p className="nextVideoContent__channel">{props.channel}</p>
+        <h1 className="nextVideoContent__title">{title}</h1>
+        <p className="nextVideoContent__channel">{channel}</p>
       </div>
     </article>
   );

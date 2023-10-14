@@ -1,10 +1,5 @@
 import "./App.scss";
-import Header from "./components/Header/Header";
-import NextVideoList from "./components/NextVideoList/NextVideoList";
-import MainVideo from "./components/MainVideo/MainVideo";
-import MainVideoInfo from "./components/MainVideoInfo/MainVideoInfo";
-import CommentsForm from "./components/CommentsForm/CommentsForm";
-import MainVideoCommentsList from "./components/MainVideoCommentsList/MainVideoCommentsList";
+import MainPage from "./components/MainPage/MainPage";
 import MainVideosDataList from "./data/video-details.json";
 import { useState } from "react";
 
@@ -17,12 +12,8 @@ function App() {
   };
   return (
     <>
-      <Header />
-      <MainVideo mainVideoData={mainVideoData} />
-      <MainVideoInfo mainVideoData={mainVideoData} />
-      <CommentsForm />
-      <MainVideoCommentsList mainVideoData={mainVideoData} />
-      <NextVideoList
+      <MainPage
+        mainVideoData={mainVideoData}
         changeMainVideoData={changeMainVideoData}
         mainVideoId={mainVideoData.id}
       />
