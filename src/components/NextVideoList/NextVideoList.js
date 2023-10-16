@@ -7,29 +7,7 @@ function NextVideoList(props) {
   const { mainVideoId, changeMainVideoData } = props;
   const [videoData] = useState(VideoListData);
 
-  return (
-    <section className="nextVideoList">
-      <div className="nextVideoList__titleWrapper">
-        <h3 className="nextVideoList__title">Next Videos</h3>
-      </div>
-      <div className="nextVideoList__content">
-        {videoData
-          .filter((video) => {
-            return video.id !== mainVideoId;
-          })
-          .map((video, index) => (
-            <Video
-              key={index}
-              changeMainVideoData={changeMainVideoData}
-              image={video.image}
-              title={video.title}
-              channel={video.channel}
-              videoId={video.id}
-            />
-          ))}
-      </div>
-    </section>
-  );
+  return <section className="nextVideoList"></section>;
 }
 
 export default NextVideoList;

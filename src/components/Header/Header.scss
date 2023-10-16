@@ -3,32 +3,14 @@
 .header {
   padding: 0px $mobile-padding-between-components;
 
-  @include tablet {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px $desktop-padding-between-components;
-  }
-
   &__brainFlixLogoWrapper {
     padding: $mobile-padding-between-components 0px;
     display: flex;
     justify-content: center;
 
-    @include tablet {
-      padding: $desktop-padding-between-components 0px;
-    }
     &-logo {
       height: 25px;
       width: 120px;
-    }
-  }
-
-  &__mainNavigation {
-    @include tablet {
-      display: flex;
-      align-items: center;
-      padding: $desktop-padding-between-components 0px;
     }
   }
 
@@ -37,10 +19,6 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: $mobile-padding-between-components;
-
-    @include tablet {
-      padding-right: $desktop-padding-between-components;
-    }
   }
 
   &__searchInput {
@@ -61,36 +39,16 @@
       position: absolute;
       left: 2.5rem;
     }
-
-    @include tablet {
-      width: 150px;
-    }
-  }
-
-  &__profilepicWrapper {
-    @include tablet {
-      display: none;
-    }
   }
 
   &__profilePic {
     border-radius: 50%;
     width: 36px;
     height: 36px;
-
-    @include tablet {
-      width: 40px;
-      height: 40px;
-    }
   }
 
   &__upload {
     padding-bottom: $mobile-padding-between-components;
-
-    @include tablet {
-      display: flex;
-      align-items: center;
-    }
   }
 
   &__uploadButton {
@@ -108,18 +66,59 @@
     &:hover {
       background-color: $BrainFlix-DarkBlue;
     }
-
-    @include tablet {
-      width: 150px;
-      padding-left: $desktop-padding-between-components;
-      padding-right: $desktop-padding-between-components;
-    }
   }
 
   &__uploadProfilePicWrapper {
     display: none;
+  }
+}
 
-    @include tablet {
+@include tablet {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px $desktop-padding-between-components;
+
+    &__brainFlixLogoWrapper {
+      padding: $desktop-padding-between-components 0px;
+    }
+
+    &__mainNavigation {
+      display: flex;
+      align-items: center;
+      padding: $desktop-padding-between-components 0px;
+    }
+
+    &__search {
+      padding-right: $desktop-padding-between-components;
+    }
+
+    &__searchInput {
+      width: 150px;
+    }
+
+    &__profilepicWrapper {
+      display: none;
+    }
+
+    &__profilePic {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__upload {
+      display: flex;
+      align-items: center;
+    }
+
+    &__uploadButton {
+      width: 150px;
+      padding-left: $desktop-padding-between-components;
+      padding-right: $desktop-padding-between-components;
+    }
+
+    &__uploadProfilePicWrapper {
       display: block;
       padding-left: $desktop-padding-between-components;
     }

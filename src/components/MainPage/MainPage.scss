@@ -1,0 +1,7 @@
+@import "../../styles/partials/global";
+
+@include desktop {
+  .mainContent {
+    display: flex;
+  }
+}

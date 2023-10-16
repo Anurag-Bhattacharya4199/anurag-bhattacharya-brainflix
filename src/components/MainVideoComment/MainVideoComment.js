@@ -15,18 +15,7 @@ function convertDate(time) {
 function MainVideoComment(props) {
   const { time, name, comment } = props;
 
-  return (
-    <section className="mainVideoComment">
-      <div className="mainVideoComment__avatarWrapper">
-        <img className="mainVideoComment" alt="Comment Avatar" />
-      </div>
-      <div className="mainVideoComment__headingTitles">
-        <h3 className="mainVideoComment__title">{name}</h3>
-        <p className="mainVideoComment__date">{convertDate(time)}</p>
-      </div>
-      <span className="mainVideoComment__comment">{comment}</span>
-    </section>
-  );
+  return <section className="mainVideoComment"></section>;
 }
 
 export default MainVideoComment;

@@ -15,40 +15,41 @@ function convertTime(time) {
 }
 function MainVideoInfo(props) {
   const { mainVideoData } = props;
-  const { timestamp, views, likes, description, comments } = mainVideoData;
+  const { title, channel, timestamp, views, likes, description, comments } =
+    mainVideoData;
 
   return (
-    <section className="videoInfo">
-      <h1 className="videoInfo__title">{mainVideoData.title}</h1>
-      <article className="videoInfo__statistics">
-        <div className="videoInfo__statistics-1">
-          <p className="videoInfo__channel">By {mainVideoData.channel}</p>
-          <p className="videoInfo__date">{convertTime(timestamp)}</p>
-        </div>
-        <div className="videoInfo__statistics-2">
-          <div className="videoInfo__viewsWrapper">
-            <img
-              src={ViewsIcon}
-              alt="Views Icon"
-              className="videoInfo__viewsIcon"
-            />
-            <span className="videoInfo__views">{views}</span>
+    <section className="mainVideoInfo">
+      <div className="mainVideoInfo__content">
+        <h1 className="mainVideoInfo__title">{title}</h1>
+        <div className="mainVideoInfo__statistics">
+          <div className="mainVideoInfo__statistics-1">
+            <p className="mainVideoInfo__statistics-channel">By {channel}</p>
+            <p className="mainVideoInfo__statistics-date">
+              {convertTime(timestamp)}
+            </p>
           </div>
-          <div className="videoInfo__likesWrapper">
-            <img
-              src={LikesIcon}
-              alt="Likes Icon"
-              className="videoInfo__likesIcon"
-            />
-            <span className="videoInfo__likes">{likes}</span>
+          <div className="mainVideoInfo__statistics-2">
+            <p className="mainVideoInfo__statistics-views">
+              <img
+                className="mainVideoInfo__statistics-viewsIcon"
+                src={ViewsIcon}
+                alt="Views Icon"
+              />
+              {views}
+            </p>
+            <p className="mainVideoInfo__statistics-likes">
+              <img
+                className="mainVideoInfo__statistics-likesIcon"
+                src={LikesIcon}
+                alt="Likes Icon"
+              />
+              {likes}
+            </p>
           </div>
         </div>
-      </article>
-      <article className="videoInfo__description">
-        <div className="videoInfo__description-content">{description}</div>
-      </article>
-      <div className="videoInfo__numberComments">
-        {comments.length} Comments
+        <p className="mainVideoInfo__description">{description}</p>
+        <p className="mainVideoInfo__numComments">{comments.length} Comments</p>
       </div>
     </section>
   );
