@@ -1,25 +1,28 @@
 import "./CommentsForm.scss";
-import AddCommentIcon from "../../assets/images/icons/add_comment.svg";
 import FormAvatar from "../../assets/images/Mohan-muruge.jpg";
 
 function CommentsForm() {
   return (
     <section className="commentsForm">
-      <div className="commentsForm__content">
-        <img
-          src={FormAvatar}
-          alt="Form Avatar"
-          className="commentsForm__formAvatar"
-        />
-        <form id="commentsForm__form" className="commentsForm__form">
-          <h1 className="commentsForm__form-title">JOIN THE CONVERSATION</h1>
-          <input
-            className="commentsForm__form-input"
-            placeholder="Add a new comment"
+      <section className="commentsForm__contentWrapper">
+        <div className="commentsForm__content">
+          <label className="commentsForm__title">JOIN THE CONVERSATION</label>
+          <form className="commentsForm__main">
+            <input
+              className="commentsForm__commentInput"
+              name="comment"
+              for="comment"
+              placeholder="Add a new comment"
+            />
+            <button className="commentsForm__submitButton">COMMENT</button>
+          </form>
+          <img
+            className="commentsForm__formAvatar"
+            src={FormAvatar}
+            alt="Form Avatar"
           />
-          <button className="commentsForm__form-submit">COMMENT</button>
-        </form>
-      </div>
+        </div>
+      </section>
     </section>
   );
 }

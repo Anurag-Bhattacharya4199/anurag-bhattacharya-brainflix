@@ -4,13 +4,13 @@
   background-color: $BrainFlix-DarkBlack;
 
   @include tablet {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   @include desktop {
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
   &__video {
     aspect-ratio: 16/9;

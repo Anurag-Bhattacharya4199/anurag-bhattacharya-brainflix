@@ -1,8 +1,11 @@
 @import "../../styles/partials/global";
 
 .mainVideoInfo {
-  padding-left: $mobile-padding-between-components;
-  padding-right: $mobile-padding-between-components;
+  width: 100%;
+
+  &__content {
+    padding: 0 $mobile-padding-between-components;
+  }
 
   &__title {
     padding-top: $mobile-padding-before-headlines;
@@ -13,7 +16,6 @@
   }
 
   &__numComments {
-    padding-bottom: $mobile-padding-between-components;
     font-family: "AvenirNext-Bold";
     @include text-styles(13px, 18px, 700);
   }
@@ -60,82 +62,52 @@
 }
 
 @include tablet {
-  .mainVideoInfo {
-    padding-left: $desktop-padding-between-components;
-    padding-right: $desktop-padding-between-components;
-
+  .mainVideoInfo{
     &__title {
-      padding-top: $desktop-padding-before-headlines;
-      padding-bottom: $desktop-padding-after-headlines;
-      border: 0;
-      font-family: "AvenirNext-Bold";
+      border-bottom: none;
+      padding-bottom: 0;
       @include text-styles(33px, 44px, 700);
     }
 
-    &__numComments {
-      padding-bottom: $desktop-padding-between-components;
-      font-family: "AvenirNext-Bold";
-      @include text-styles(14px, 22px, 700);
-    }
-
     &__statistics {
-      padding: 0;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid $Mercury;
-      display: flex;
-      justify-content: space-between;
+      padding-bottom: 0;
       @include text-styles(14px, 22px, 400);
 
-      &-1, &-2{
+      &-1, &-2 {
         display: flex;
       }
-      &-likes {
-        color: $Silver;
-      }
-  
+
       &-date {
-        color: $Silver;
+        padding-left: $mobile-padding-between-components;
       }
-  
-      &-channel {
-        padding-bottom: 0;
-        padding-right: $desktop-padding-between-components;
-        font-family: "AvenirNext-Bold";
-        font-weight: 700;
-      }
-  
-      &-views {
-        color: $Silver;
-        padding-right: $desktop-padding-between-components;
-        padding-bottom: 0;
-      }
-  
-      &-viewsIcon {
-        padding-right: .5rem;
-      }
-  
-      &-likesIcon {
-        padding-right: $mobile-padding-between-components;
+
+      &-likes {
+        padding-left: $mobile-padding-between-components;
       }
     }
 
     &__description {
-      padding: $desktop-padding-between-components 0;
       @include text-styles(14px, 22px, 400);
+    }
+
+    &__numComments {
+      @include text-styles(14px, 22px, 700);
     }
   }
 }
 
 @include desktop {
-  .mainVideoInfo {
-    padding-right: 0px;
-    padding-left: 100px;
-    border-right: 1px solid $Mercury;
-
-    &__statistics-2 {
-      padding-right: $desktop-padding-between-components;
-    }
+  .mainVideoInfo__description {
+    padding-top: $desktop-padding-between-components;
+    padding-bottom: $desktop-padding-before-headlines;
   }
 
-  
+  .mainVideoInfo__numComments {
+    padding-bottom: $desktop-padding-between-components;
+  }
+
+  .mainVideoInfo__title {
+    padding-top: $desktop-padding-before-headlines;
+    padding-bottom: $desktop-padding-after-headlines;
+  }
 }
