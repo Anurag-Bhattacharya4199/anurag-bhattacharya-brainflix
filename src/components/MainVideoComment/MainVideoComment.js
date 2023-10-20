@@ -18,7 +18,7 @@ function MainVideoComment(props) {
   return (
     <article className="mainVideoComment">
       <div className="mainVideoComment__avatarWrapper">
-        <img className="mainVideoComment__avatar" src="" alt="Comment Avatar" />
+        <img className="mainVideoComment__avatar" />
       </div>
       <div className="mainVideoComment__commentContent">
         <div className="mainVideoComment__headingContent">

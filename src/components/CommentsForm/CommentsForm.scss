@@ -22,7 +22,7 @@
     border-radius: 50%;
     position: absolute;
     top: 1.5rem;
-    left: 0;
+    left: 0.5rem;
   }
 
   &__title {
@@ -71,26 +71,36 @@
 }
 
 @include tablet {
-  .commentsForm__main {
-    display: flex;  
-  }
 
-  .commentsForm__commentInput {
-    padding-bottom: 0;
-    height: 2.25rem;
-    width: 80%;
-    @include text-styles(12px, 20px, 700);
-  }
+  .commentsForm {
+    padding-top: $desktop-padding-between-components;
+    padding-bottom: $desktop-padding-between-components;
 
-  .commentsForm__submitButton {
-    width: 30%;
-    margin-left: 1rem;
-    margin-top: .5rem;
-    @include text-styles(12px, 20px, 700);
-  }
+    &__content {
+      padding-bottom: $desktop-padding-between-components;
+    }
 
-  .commentsForm__formAvatar {
-    height: 40px;
-    width: 40px;
+    &__main {
+      display: flex;
+    }
+
+    &__commentInput {
+      padding-bottom: 0;
+      height: 2.25rem;
+      width: 80%;
+      @include text-styles(12px, 20px, 700);
+    }
+
+    &__submitButton {
+      width: 30%;
+      margin-left: 1rem;
+      margin-top: .5rem;
+      @include text-styles(12px, 20px, 700);
+    }
+
+    &__formAvatar {
+      height: 40px;
+      width: 40px;
+    }
   }
 }

@@ -1,6 +1,13 @@
-// @import "../../styles/partials/global";
+@import "../../styles/partials/global";
 
-// .mainVideoCommentsList {
-//   padding-left: $mobile-padding-between-components;
-//   padding-right: $mobile-padding-between-components;
-// }
+.mainVideoCommentsList {
+  padding-left: $mobile-padding-between-components;
+  padding-right: $mobile-padding-between-components;
+}
+
+@include tablet {
+  .mainVideoCommentsList {
+    padding-left: $desktop-padding-between-components;
+    padding-right: $desktop-padding-between-components;
+  }
+}
