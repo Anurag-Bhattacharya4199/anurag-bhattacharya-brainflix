@@ -1,6 +1,23 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Comments Form Component JS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+/*
+Importing all the files needed for this file
+ */
+//Importing Comments Form Stylesheet
 import "./CommentsForm.scss";
+//Importing the Form Avatar from assets folder
 import FormAvatar from "../../assets/images/Mohan-muruge.jpg";
 
+/**
+ *
+ * @returns the container of the Comments Form section
+ */
 function CommentsForm() {
   return (
     <section className="commentsForm">
@@ -29,4 +46,5 @@ function CommentsForm() {
   );
 }
 
+//Exporting CommentsForm function
 export default CommentsForm;

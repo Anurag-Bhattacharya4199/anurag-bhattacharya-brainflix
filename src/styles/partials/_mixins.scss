@@ -1,5 +1,15 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Mixins Styles - Partial SASS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Import of Variables Partial Stylesheet
 @import './variables';
 
+//Mixin for All Avatar Images
 @mixin avatar-styles($width, $height, $border-radius)
 {
   width: $width;
@@ -7,6 +17,7 @@
   border-radius: $border-radius;
 }
 
+//Mixin for Text Styles
 @mixin text-styles($font-size, $line-height, $font-weight)
 {
   font-size: $font-size;
@@ -14,6 +25,7 @@
   font-weight: $font-weight;
 }
 
+//Mixin for the Mobile Resolution Button Styles
 @mixin mobile-button-styles($height, $width, $border-radius, $background-repeat, $background-position)
 {
   height: $height;
@@ -23,6 +35,7 @@
   background-position: $background-position;
 }
 
+//Mixin for the Table Resolution
 @mixin tablet
 {
   @media screen and (min-width: $tablet-breakdown) 
@@ -31,6 +44,7 @@
   }
 }
 
+//Mixin for the Desktop Resolution
 @mixin desktop
 {
   @media screen and (min-width: $desktop-breakdown)

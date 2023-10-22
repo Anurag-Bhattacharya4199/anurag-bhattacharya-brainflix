@@ -1,12 +1,24 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Main Video Info Component SASS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Importing Global Partial Stylesheet
 @import "../../styles/partials/global";
 
+//Styles for the Main Video Info section
 .mainVideoInfo {
   width: 100%;
 
+  //Styles for the Content
   &__content {
     padding: 0 $mobile-padding-between-components;
   }
 
+  //Styles for the Title
   &__title {
     padding: $mobile-padding-before-headlines 0 $mobile-padding-after-headlines;
     border-bottom: 1px solid $Mercury;
@@ -14,47 +26,53 @@
     @include text-styles(24px, 32px, 700);
   }
 
+  //Styles for the Number of Comments Text
   &__numComments {
     font-family: "AvenirNext-Bold";
     @include text-styles(13px, 18px, 700);
   }
 
-  &__baseStatics, &__description {
-    @include text-styles(13px, 18px, 400);
-  }
-
+  //Common Styles for the Video Statistics & Description
   &__baseStatistics, &__description {
+    @include text-styles(13px, 18px, 400);
     padding: $mobile-padding-between-components 0;
   }
 
+  //Styles for the Video Statistics
   &__baseStatistics {
     border-bottom: 1px solid $Mercury;
     display: flex;
     justify-content: space-between;
 
+    //Common Styles for likesWrapper, date text & viewsWrapper
     &-likesWrapper, &-date, &-viewsWrapper {
       color: $Silver;
     }
 
+    //Common Styles for channel text & viewsWrapper
     &-channel, &-viewsWrapper {
       padding-bottom: $mobile-padding-between-components;
     }
     
+    //Styles for channel text
     &-channel {
       font-family: "AvenirNext-Bold";
       font-weight: 700;
     }
 
+    //Styles for Views Icon
     &-viewsIcon {
       padding-right: .5rem;
     }
 
+    //Styles for Likes Icon
     &-likesIcon {
       padding-right: $mobile-padding-between-components;
     }
   }
 }
 
+//Table Resolution Styles
 @include tablet {
   .mainVideoInfo{
 
@@ -91,6 +109,7 @@
   }
 }
 
+//Desktop Resolution Styles
 @include desktop {
   .mainVideoInfo__description {
     padding: $desktop-padding-between-components 0 $desktop-padding-before-headlines;

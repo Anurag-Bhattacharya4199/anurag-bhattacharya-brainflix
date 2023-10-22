@@ -1,20 +1,35 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Variables Styles - Partial SASS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+/*
+All the Colors needed for the website
+*/
 $BrainFlix-Black: #323232;
 $BrainFlix-Blue: #0095FF;
 $Silver: #AFAFAF;
 $White: #FFFFFF;
-
 $BrainFlix-DarkBlack: #000000;
 $BrainFlix-DarkBlue: #0065AD;
 $Mercury: #E1E1E1;
 $Alabaster: #FAFAFA;
 
+/*
+All the Padding Styles needed for the website
+*/
 $desktop-padding-before-headlines: 2.25rem;
 $desktop-padding-after-headlines: 1.5rem;
 $desktop-padding-between-components: 1.5rem;
-
 $mobile-padding-before-headlines: 1.5rem;
 $mobile-padding-after-headlines: 1rem;
 $mobile-padding-between-components: 1rem;
 
+/*
+Tablet and Desktop Resolution Breakdown Styles
+*/
 $tablet-breakdown: 768px; 
 $desktop-breakdown: 1280px;

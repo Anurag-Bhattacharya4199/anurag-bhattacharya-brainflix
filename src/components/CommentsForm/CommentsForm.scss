@@ -1,17 +1,31 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Comments Form SASS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Importing Global Partial Stylesheet
 @import "../../styles/partials/global";
 
+
+//Styles for Comments Form Section
 .commentsForm {
   padding: $mobile-padding-between-components 0 $mobile-padding-between-components;
 
+  //Styles for Content Wrapper
   &__contentWrapper {
     padding: 0 $mobile-padding-between-components 0;
 
+    //Styles for Content
     &-content {
       padding-bottom: $mobile-padding-between-components;
       position: relative;
       padding-left: 4rem;
     }
 
+    //Styles for Title
     &-title {
       font-family: "AvenirNext-Bold";
       color: $Silver;
@@ -19,6 +33,7 @@
     }
   }
 
+  //Styles for Avatar
   &__avatar {
     @include avatar-styles(36px,36px,50%);
     position: absolute;
@@ -26,7 +41,9 @@
     left: 0.5rem;
   }
 
+  //Styles for Form
   &__form {
+    //Styles for Input
     &-input {
       height: 5rem;
       padding-bottom: 3rem;
@@ -38,15 +55,20 @@
       font-family: 'AvenirNext-Bold';
       position: relative;
       @include text-styles(10px, 20px, 700);
-
+      //Styles for Placeholder
       &::placeholder {
         color: $BrainFlix-Black;
         position: absolute;
         top: 1rem;
         left: 1rem;
       }
+      //Styles for when input is focused
+      &:focus {
+        border: 2px solid $BrainFlix-Blue;
+      }
     }
 
+    //Styles for Submit Button of Form
     &-submitButton {
       @include mobile-button-styles(40px,100%,4px,no-repeat,0.5rem);
       background-color: $BrainFlix-Blue;
@@ -55,6 +77,7 @@
       margin-top: 1rem;
       font-family: 'AvenirNext-Bold';
       @include text-styles(10px,20px,700);
+      //Styles for Submit Button Hover effort
       &:hover        
       {
         background-color: $BrainFlix-DarkBlue;
@@ -63,6 +86,7 @@
   }
 }
 
+//Tablet Resolution Styles
 @include tablet {
 
   .commentsForm {

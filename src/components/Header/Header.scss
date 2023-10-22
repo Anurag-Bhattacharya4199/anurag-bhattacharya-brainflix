@@ -1,27 +1,42 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Header SASS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Importing Global Partial Stylesheet
 @import "../../styles/partials/global";
 
+//Styles of Main Header
 .mainHeader {
   padding: 0px $mobile-padding-between-components;
 
+  //Common Styles of Logo and Search Wrapper
   &__logoWrapper, &__searchWrapper {
     display: flex;
   }
 
+  //Styles of Logo Wrapper
   &__logoWrapper {
     padding: $mobile-padding-between-components 0px;
     justify-content: center;
 
+    //Styles of Logo Image
     &-logoImg {
       height: 25px;
       width: 120px;
     }
   }
 
+  //Styles of Search Wrapper
   &__searchWrapper {
     justify-content: space-between;
     align-items: center;
     padding-bottom: $mobile-padding-between-components;
 
+    //Styles of Input
     &-input {
       height: 40px;
       width: 75%;
@@ -33,8 +48,10 @@
       padding-left: 1.5rem;
       font-family: 'AvenirNext-Bold';
       position: relative;
-      
-      &::placeholder {
+
+      //Styles of PlaceHolder
+      &::placeholder
+      {
         color: $BrainFlix-Black;
         position: absolute;
         left: 2.5rem;
@@ -42,19 +59,23 @@
     }
   }
 
+  //Common Styles of Input and upload Button
   &__searchWrapper-input, &__uploadWrapper-uploadBtn {
     @include text-styles(10px, 20px, 700);
   }
 
+  //Styles of Profile Wrapper
   &__profileWrapper {
     &-profileImg {
       @include avatar-styles(36px,36px,50%);
     }
   }
 
+  //Styles of Upload Wrapper
   &__uploadWrapper {
     padding-bottom: $mobile-padding-between-components;
 
+    //Styles of Upload Button
     &-uploadBtn {
       @include mobile-button-styles(40px, 100%, 4px, no-repeat, 0.5rem);
       background-color: $BrainFlix-Blue;
@@ -62,17 +83,20 @@
       background-image: url("../../assets/images/icons/upload.svg");
       font-family: 'AvenirNext-Bold';
 
+      //Styles of Hover Effort of Upload Button
       &:hover {
         background-color: $BrainFlix-DarkBlue;
       }
     }
 
+    //Styles of Upload Profile Wrapper
     &-uploadProfileWrapper {
       display: none;
     }
   }
 }
 
+//Table Resolution Styles
 @include tablet {
   .mainHeader, .mainHeader__navigation, .mainHeader__uploadWrapper {
     display: flex;

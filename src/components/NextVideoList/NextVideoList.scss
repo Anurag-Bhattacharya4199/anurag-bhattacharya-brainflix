@@ -1,9 +1,20 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Next Video List Component Styles
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Import Global Partials Stylesheet
 @import "../../styles/partials/global";
 
+//Styles for the Next Videos List
 .nextVideosList {
   border-top: 1px solid $Mercury;
   padding: 0 $mobile-padding-between-components $mobile-padding-between-components;
 
+  //Styles for the Main Title of the section
   &__title {
     font-family: "AvenirNext-Bold";
     @include text-styles(12px, 20px, 700);
@@ -11,6 +22,7 @@
     padding: $mobile-padding-before-headlines 0 $mobile-padding-after-headlines;
   }
 
+  //Styles for the Main Content of the section
   &__mainContent {
     display: flex;
     flex-direction: column;
@@ -18,6 +30,7 @@
   }
 }
 
+//Table Resolution Styles
 @include tablet {
   .nextVideosList {
     padding: 0 $desktop-padding-between-components $desktop-padding-between-components;
@@ -32,6 +45,7 @@
   }
 }
 
+//Desktop Resolution Styles
 @include desktop {
   .nextVideosList {
     &__mainContent {

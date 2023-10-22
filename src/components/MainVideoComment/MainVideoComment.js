@@ -1,5 +1,19 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Main Video Comments Component JS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Importing Main Video Comment Stylesheet
 import "./MainVideoComment.scss";
 
+/**
+ *
+ * @param int time
+ * @returns string of the timestamp in a local date format
+ */
 function convertDate(time) {
   let unixTimeStamp = time;
   let date = new Date(unixTimeStamp);
@@ -12,7 +26,15 @@ function convertDate(time) {
   return dateString;
 }
 
+/**
+ *
+ * @param int time
+ * @param string name
+ * @param string comment
+ * @returns the container of the main video
+ */
 function MainVideoComment({ time, name, comment }) {
+  //Returns the container of the main video
   return (
     <article className="mainVideoComment">
       <div className="mainVideoComment__avatarWrapper">
@@ -35,4 +57,5 @@ function MainVideoComment({ time, name, comment }) {
   );
 }
 
+//Exporting the MainVideoComment function
 export default MainVideoComment;

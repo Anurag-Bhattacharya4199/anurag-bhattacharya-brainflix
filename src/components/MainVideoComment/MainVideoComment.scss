@@ -1,44 +1,61 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Main Video Comments Component JS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Importing Global Partial Stylesheet
 @import "../../styles/partials/global";
 
+//Styles for Main Video Comment Section
 .mainVideoComment {
   display: flex;
   border-top: 1px solid $Mercury;
   padding: $mobile-padding-between-components 0;
 
+  //Styles for Avatar Wrapper
   &__avatarWrapper {
     padding-right: $mobile-padding-between-components;
 
+    //Styles for Avatar
     &-avatar {
       @include avatar-styles(36px,36px,50%);
       background-color: $Mercury;
     }
   }
 
+  //Styles for Comment Content
   &__commentContent {
     width: 100%;
 
+    //Styles for Comment Section - Heade
     &-header {
       display: flex;
       justify-content: space-between;
       padding-bottom: $mobile-padding-between-components;
 
+      //Styles for Comment Title
       &__title {
         font-family: "AvenirNext-Bold";
         @include text-styles(13px, 18px, 700);
       }
 
+      //Styles for Comment Date
       &__date {
-        
         color: $Silver;
       }
     }
 
+    //Common Styles for Date and Comment
     &-header__date, &-comment {
       @include text-styles(13px, 18px, 400);
     }
   }
 }
 
+//Tablet Resolution Styles
 @include tablet {
   .mainVideoComment {
     padding: $desktop-padding-between-components 0;

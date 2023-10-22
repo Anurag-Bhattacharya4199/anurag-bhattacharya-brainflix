@@ -1,16 +1,30 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Main Video Component JS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Importing Global Partial Stylesheet
 @import "../../styles/partials/global";
 
+
+//Styles for Main Video Container
 .mainVideo {
   background-color: $BrainFlix-DarkBlack;
 
+  //Tablet Resolution Styles
   @include tablet {
     padding: 0 3rem 0;
   }
 
+  //Desktop Resolution Styles
   @include desktop {
     padding: 0 10rem 0;
   }
   
+  //Styles for Video Image
   &__video {
     aspect-ratio: 16/9;
     width: 100%;

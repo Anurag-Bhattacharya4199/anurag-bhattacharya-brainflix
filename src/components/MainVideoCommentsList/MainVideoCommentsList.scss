@@ -1,9 +1,20 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Main Video Comments list Component SASS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+//Importing Global Partial Stylesheet
 @import "../../styles/partials/global";
 
+//Styles for Main Video Comments List Section
 .mainVideoCommentsList {
   padding: 0 $mobile-padding-between-components 0;
 }
 
+//Tablet Resolution Styles
 @include tablet {
   .mainVideoCommentsList {
     padding: 0 $desktop-padding-between-components 0;

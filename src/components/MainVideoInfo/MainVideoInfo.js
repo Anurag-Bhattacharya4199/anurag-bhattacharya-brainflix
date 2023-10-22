@@ -1,7 +1,26 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 1
+Description: This is the Main Video Info Component JS File
+Diving Deeper Notes:
+I was unable to figure out the Diving Deeper Section for this Sprint
+*/
+
+/*
+Importing files needed for this file
+ */
+//Importing Main Video Info Stylesheet
 import "./MainVideoInfo.scss";
+//Importing Views Icon Image from assets folder
 import ViewsIcon from "../../assets/images/icons/views.svg";
+//Importing Likes Icon Image from assets folder
 import LikesIcon from "../../assets/images/icons/likes.svg";
 
+/**
+ *
+ * @param int time
+ * @returns a string to represent a local date from the time parameter
+ */
 function convertTime(time) {
   let unixTimeStamp = time;
   let date = new Date(unixTimeStamp);
@@ -13,10 +32,18 @@ function convertTime(time) {
   let dateString = `${month}/${day}/${year}`;
   return dateString;
 }
+
+/**
+ *
+ * @param array mainVideoData
+ * @returns the container for the Main Video Information
+ */
 function MainVideoInfo({ mainVideoData }) {
+  //Getting specific values from the array needed to be displayed
   const { title, channel, timestamp, views, likes, description, comments } =
     mainVideoData;
 
+  //returns the container for the Main Video Information
   return (
     <section className="mainVideoInfo">
       <div className="mainVideoInfo__content">
@@ -56,4 +83,5 @@ function MainVideoInfo({ mainVideoData }) {
   );
 }
 
+//Exporting the MainVideoInfo function
 export default MainVideoInfo;
