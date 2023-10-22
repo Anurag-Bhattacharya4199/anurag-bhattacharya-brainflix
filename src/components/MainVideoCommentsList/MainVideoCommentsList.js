@@ -6,9 +6,9 @@ function MainVideoCommentsList(props) {
 
   return (
     <section className="mainVideoCommentsList">
-      {comments.map((comment, index) => (
+      {comments.map((comment) => (
         <MainVideoComment
-          key={index}
+          key={comment.id}
           name={comment.name}
           time={comment.timestamp}
           comment={comment.comment}

@@ -1,70 +1,64 @@
 @import "../../styles/partials/global";
 
 .commentsForm {
-  padding-top: $mobile-padding-between-components;
-  padding-bottom: $mobile-padding-between-components;
+  padding: $mobile-padding-between-components 0 $mobile-padding-between-components;
 
   &__contentWrapper {
-    padding-left: $mobile-padding-between-components;
-    padding-right: $mobile-padding-between-components;
+    padding: 0 $mobile-padding-between-components 0;
+
+    &-content {
+      padding-bottom: $mobile-padding-between-components;
+      position: relative;
+      padding-left: 4rem;
+    }
+
+    &-title {
+      font-family: "AvenirNext-Bold";
+      color: $Silver;
+      @include text-styles(12px, 20px, 700);
+    }
   }
 
-  &__content {
-    padding-bottom: $mobile-padding-between-components;
-    position: relative;
-    padding-left: 4rem;
-  }
-
-  &__formAvatar {
-    height: 36px;
-    width: 36px;
-    border-radius: 50%;
+  &__avatar {
+    @include avatar-styles(36px,36px,50%);
     position: absolute;
     top: 1.5rem;
     left: 0.5rem;
   }
 
-  &__title {
-    font-family: "AvenirNext-Bold";
-    color: $Silver;
-    @include text-styles(12px, 20px, 700);
-  }
+  &__form {
+    &-input {
+      height: 5rem;
+      padding-bottom: 3rem;
+      border: 1px solid $Mercury;
+      border-radius: 4px;
+      background-color: $Alabaster;
+      margin-top: .5rem;
+      width: 100%;
+      font-family: 'AvenirNext-Bold';
+      position: relative;
+      @include text-styles(10px, 20px, 700);
 
-  &__commentInput {
-    height: 5rem;
-    padding-bottom: 3rem;
-    border: 1px solid $Mercury;
-    border-radius: 4px;
-    background-color: $Alabaster;
-    margin-top: .5rem;
-    width: 100%;
-    font-family: 'AvenirNext-Bold';
-    position: relative;
-    @include text-styles(10px, 20px, 700);
-
-    &::placeholder {
-      color: $BrainFlix-Black;
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
+      &::placeholder {
+        color: $BrainFlix-Black;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+      }
     }
-  }
 
-  &__submitButton {
-    height: 40px;
-    width: 100%;
-    border-radius: 4px;
-    background-color: $BrainFlix-Blue;
-    color: $White;
-    background-image: url("../../assets/images/icons/add_comment.svg");
-    background-repeat: no-repeat;
-    background-position: 0.5rem;
-    margin-top: 1rem;
-    font-family: 'AvenirNext-Bold';
-    @include text-styles(10px, 20px, 700);
-
-    &:hover {
-      background-color: $BrainFlix-DarkBlue;
+    &-submitButton {
+      @include mobile-button-styles(40px,100%,4px,no-repeat,0.5rem);
+      background-color: $BrainFlix-Blue;
+      color: $White;
+      background-image: url("../../assets/images/icons/add_comment.svg");
+      margin-top: 1rem;
+      font-family: 'AvenirNext-Bold';
+      @include text-styles(10px,20px,700);
+      &:hover        
+      {
+        background-color: $BrainFlix-DarkBlue;
+      }
     }
   }
 }
@@ -72,34 +66,33 @@
 @include tablet {
 
   .commentsForm {
-    padding-top: $desktop-padding-between-components;
-    padding-bottom: $desktop-padding-between-components;
+    padding: $desktop-padding-between-components 0;
 
-    &__content {
-      padding-bottom: $desktop-padding-between-components;
+    &-contentWrapper {
+      &-content {
+        padding-bottom: $desktop-padding-between-components;
+      }
     }
 
-    &__main {
+    &__form {
       display: flex;
-    }
 
-    &__commentInput {
-      padding-bottom: 0;
-      height: 2.25rem;
-      width: 80%;
-      @include text-styles(12px, 20px, 700);
-    }
+      &-input {
+        padding-bottom: 0;
+        height: 2.25rem;
+        width: 80%;
+        @include text-styles(12px, 20px, 700);
+      }
 
-    &__submitButton {
-      width: 30%;
-      margin-left: 1rem;
-      margin-top: .5rem;
-      @include text-styles(12px, 20px, 700);
+      &-submitButton {
+        width: 30%;
+        margin: .5rem 0 0 1rem;
+        @include text-styles(12px, 20px, 700);
+      }
     }
-
+    
     &__formAvatar {
-      height: 40px;
-      width: 40px;
+      @include avatar-styles(40px,40px,50%);
     }
   }
 }

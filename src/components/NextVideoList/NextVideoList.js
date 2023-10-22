@@ -3,21 +3,20 @@ import Video from "../NextVideo/NextVideo";
 import VideoListData from "../../data/videos.json";
 import { useState } from "react";
 
-function NextVideoList(props) {
-  const { mainVideoId, changeMainVideoData } = props;
+function NextVideoList({ mainVideoId, changeMainVideoData }) {
   const [videoData] = useState(VideoListData);
 
   return (
-    <section className="nextVideos">
-      <h1 className="nextVideos__title">NEXT VIDEOS</h1>
-      <section className="nextVideos__content">
+    <section className="nextVideosList">
+      <h1 className="nextVideosList__title">NEXT VIDEOS</h1>
+      <article className="nextVideosList__mainContent">
         {videoData
           .filter((video) => {
             return video.id !== mainVideoId;
           })
-          .map((video, index) => (
+          .map((video) => (
             <Video
-              key={index}
+              key={video.id}
               changeMainVideoData={changeMainVideoData}
               image={video.image}
               title={video.title}
@@ -25,7 +24,7 @@ function NextVideoList(props) {
               videoId={video.id}
             />
           ))}
-      </section>
+      </article>
     </section>
   );
 }

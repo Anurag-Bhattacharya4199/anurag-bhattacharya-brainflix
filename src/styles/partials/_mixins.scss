@@ -1,10 +1,26 @@
 @import './variables';
 
+@mixin avatar-styles($width, $height, $border-radius)
+{
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+}
+
 @mixin text-styles($font-size, $line-height, $font-weight)
 {
   font-size: $font-size;
   line-height: $line-height;
   font-weight: $font-weight;
+}
+
+@mixin mobile-button-styles($height, $width, $border-radius, $background-repeat, $background-position)
+{
+  height: $height;
+  width: $width;
+  border-radius: $border-radius;
+  background-repeat: $background-repeat;
+  background-position: $background-position;
 }
 
 @mixin tablet

@@ -12,20 +12,24 @@ function convertDate(time) {
   return dateString;
 }
 
-function MainVideoComment(props) {
-  const { time, name, comment } = props;
-
+function MainVideoComment({ time, name, comment }) {
   return (
     <article className="mainVideoComment">
       <div className="mainVideoComment__avatarWrapper">
-        <img className="mainVideoComment__avatar" />
+        <img className="mainVideoComment__avatarWrapper-avatar" alt="" />
       </div>
       <div className="mainVideoComment__commentContent">
-        <div className="mainVideoComment__headingContent">
-          <h3 className="mainVideoComment__title">{name}</h3>
-          <p className="mainVideoComment__date">{convertDate(time)}</p>
+        <div className="mainVideoComment__commentContent-header">
+          <h3 className="mainVideoComment__commentContent-header__title">
+            {name}
+          </h3>
+          <p className="mainVideoComment__commentContent-header__date">
+            {convertDate(time)}
+          </p>
         </div>
-        <span className="mainVideoComment__comment">{comment}</span>
+        <span className="mainVideoComment__commentContent-comment">
+          {comment}
+        </span>
       </div>
     </article>
   );

@@ -1,26 +1,24 @@
 import "./NextVideo.scss";
 
-function NextVideo(props) {
-  const { videoId, title, channel, changeMainVideoData, image } = props;
-
+function NextVideo({ videoId, title, channel, changeMainVideoData, image }) {
   return (
-    <article
-      className="nextVideoContent"
+    <section
+      className="videoContent"
       onClick={() => changeMainVideoData(videoId)}
     >
-      <div className="nextVideoContent__videoPosterWrapper">
+      <article className="videoContent__videoWrapper">
         <img
           src={image}
           alt="Video Poster"
-          className="nextVideoContent__videoPoster"
+          className="videoContent__videoWrapper-video"
         />
-      </div>
+      </article>
 
-      <div className="nextVideoContent__contentWrapper">
-        <h1 className="nextVideoContent__title">{title}</h1>
-        <p className="nextVideoContent__channel">{channel}</p>
-      </div>
-    </article>
+      <article className="videoContent__content">
+        <h1 className="videoContent__content-title">{title}</h1>
+        <p className="videoContent__content-channel">{channel}</p>
+      </article>
+    </section>
   );
 }
 

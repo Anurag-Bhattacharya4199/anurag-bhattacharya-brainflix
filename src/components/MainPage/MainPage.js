@@ -6,20 +6,18 @@ import MainVideoCommentsList from "../MainVideoCommentsList/MainVideoCommentsLis
 import NextVideoList from "../NextVideoList/NextVideoList";
 import "./MainPage.scss";
 
-function MainPage(props) {
-  const { mainVideoData, changeMainVideoData, mainVideoId } = props;
-
+function MainPage({ mainVideoData, changeMainVideoData, mainVideoId }) {
   return (
     <>
       <Header />
       <MainVideo mainVideoData={mainVideoData} />
-      <section className="mainContent">
-        <div className="mainContent__left">
+      <section className="mainPageContent">
+        <div className="mainPageContent__leftPanel">
           <MainVideoInfo mainVideoData={mainVideoData} />
           <CommentsForm />
           <MainVideoCommentsList mainVideoData={mainVideoData} />
         </div>
-        <div className="mainContent__right">
+        <div className="mainPageContent__rightPanel">
           <NextVideoList
             changeMainVideoData={changeMainVideoData}
             mainVideoId={mainVideoId}

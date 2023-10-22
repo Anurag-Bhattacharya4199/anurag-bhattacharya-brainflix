@@ -1,39 +1,44 @@
 import "./Header.scss";
-import BrainFlixLogo from "../../assets/images/logo/BrainFlix-logo.svg";
+import Logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import ProfilePic from "../../assets/images/Mohan-muruge.jpg";
 
 function Header() {
   return (
-    <header className="header">
-      <div className="header__brainFlixLogoWrapper">
+    <header className="mainHeader">
+      <div className="mainHeader__logoWrapper">
         <img
-          src={BrainFlixLogo}
-          alt="Main Logo"
-          className="header__brainFlixLogoWrapper-logo"
+          src={Logo}
+          alt="Logo"
+          className="mainHeader__logoWrapper-logoImg"
         />
       </div>
-      <div className="header__mainNavigation">
-        <div className="header__search">
-          <input className="header__searchInput" placeholder="Search"></input>
-          <div className="header__profilepicWrapper">
+      <nav className="mainHeader__navigation">
+        <article className="mainHeader__searchWrapper">
+          <input
+            className="mainHeader__searchWrapper-input"
+            placeholder="Search"
+          ></input>
+          <div className="mainHeader__profileWrapper">
             <img
               src={ProfilePic}
               alt="Profile Pic"
-              className="header__profilePic"
+              className="mainHeader__profileWrapper-profileImg"
             ></img>
           </div>
-        </div>
-        <div className="header__upload">
-          <button className="header__uploadButton">UPLOAD</button>
-          <div className="header__uploadProfilePicWrapper">
+        </article>
+        <article className="mainHeader__uploadWrapper">
+          <button className="mainHeader__uploadWrapper-uploadBtn">
+            UPLOAD
+          </button>
+          <div className="mainHeader__uploadWrapper-uploadProfileWrapper">
             <img
               src={ProfilePic}
               alt="Profile Pic"
-              className="header__profilePic"
+              className="mainHeader__uploadWrapper-uploadProfileImg"
             ></img>
           </div>
-        </div>
-      </div>
+        </article>
+      </nav>
     </header>
   );
 }

@@ -1,126 +1,119 @@
 @import "../../styles/partials/global";
 
-.header {
+.mainHeader {
   padding: 0px $mobile-padding-between-components;
 
-  &__brainFlixLogoWrapper {
-    padding: $mobile-padding-between-components 0px;
+  &__logoWrapper, &__searchWrapper {
     display: flex;
+  }
+
+  &__logoWrapper {
+    padding: $mobile-padding-between-components 0px;
     justify-content: center;
 
-    &-logo {
+    &-logoImg {
       height: 25px;
       width: 120px;
     }
   }
 
-  &__search {
-    display: flex;
+  &__searchWrapper {
     justify-content: space-between;
     align-items: center;
     padding-bottom: $mobile-padding-between-components;
-  }
 
-  &__searchInput {
-    height: 40px;
-    width: 75%;
-    border-radius: 4px;
-    border: 1px solid $Silver;
-    background: url("../../assets/images/icons/search.svg") no-repeat;
-    background-color: $Alabaster;
-    background-position: 1rem;
-    padding-left: 1.5rem;
-    font-family: 'AvenirNext-Bold';
-    position: relative;
-    @include text-styles(10px, 20px, 700);
-    
-    &::placeholder {
-      color: $BrainFlix-Black;
-      position: absolute;
-      left: 2.5rem;
+    &-input {
+      height: 40px;
+      width: 75%;
+      border-radius: 4px;
+      border: 1px solid $Silver;
+      background: url("../../assets/images/icons/search.svg") no-repeat;
+      background-color: $Alabaster;
+      background-position: 1rem;
+      padding-left: 1.5rem;
+      font-family: 'AvenirNext-Bold';
+      position: relative;
+      
+      &::placeholder {
+        color: $BrainFlix-Black;
+        position: absolute;
+        left: 2.5rem;
+      }
     }
   }
 
-  &__profilePic {
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
+  &__searchWrapper-input, &__uploadWrapper-uploadBtn {
+    @include text-styles(10px, 20px, 700);
   }
 
-  &__upload {
+  &__profileWrapper {
+    &-profileImg {
+      @include avatar-styles(36px,36px,50%);
+    }
+  }
+
+  &__uploadWrapper {
     padding-bottom: $mobile-padding-between-components;
-  }
 
-  &__uploadButton {
-    height: 40px;
-    width: 100%;
-    border-radius: 4px;
-    background-color: $BrainFlix-Blue;
-    color: $White;
-    background-image: url("../../assets/images/icons/upload.svg");
-    background-repeat: no-repeat;
-    background-position: 0.5rem;
-    font-family: 'AvenirNext-Bold';
-    @include text-styles(10px, 20px, 700);
+    &-uploadBtn {
+      @include mobile-button-styles(40px, 100%, 4px, no-repeat, 0.5rem);
+      background-color: $BrainFlix-Blue;
+      color: $White;
+      background-image: url("../../assets/images/icons/upload.svg");
+      font-family: 'AvenirNext-Bold';
 
-    &:hover {
-      background-color: $BrainFlix-DarkBlue;
+      &:hover {
+        background-color: $BrainFlix-DarkBlue;
+      }
     }
-  }
 
-  &__uploadProfilePicWrapper {
-    display: none;
+    &-uploadProfileWrapper {
+      display: none;
+    }
   }
 }
 
 @include tablet {
-  .header {
+  .mainHeader, .mainHeader__navigation, .mainHeader__uploadWrapper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+  }
+
+  .mainHeader {
+    justify-content: space-between;
     padding: 0px $desktop-padding-between-components;
 
-    &__brainFlixLogoWrapper {
+    &__logoWrapper, &__navigation {
       padding: $desktop-padding-between-components 0px;
     }
 
-    &__mainNavigation {
-      display: flex;
-      align-items: center;
-      padding: $desktop-padding-between-components 0px;
-    }
-
-    &__search {
+    &__searchWrapper {
       padding-right: $desktop-padding-between-components;
+
+      &-input {
+        width: 150px;
+      }
     }
 
-    &__searchInput {
-      width: 150px;
-    }
-
-    &__profilepicWrapper {
+    &__profileWrapper {
       display: none;
     }
 
-    &__profilePic {
-      width: 40px;
-      height: 40px;
-    }
+    &__uploadWrapper {
+      &-uploadBtn {
+        width: 150px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
 
-    &__upload {
-      display: flex;
-      align-items: center;
-    }
+      &-uploadProfileWrapper {
+        display: block;
+        padding-left: $desktop-padding-between-components;
+      }
 
-    &__uploadButton {
-      width: 150px;
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-
-    &__uploadProfilePicWrapper {
-      display: block;
-      padding-left: $desktop-padding-between-components;
+      &-uploadProfileImg {
+        @include avatar-styles(40px,40px,50%);
+      }
     }
   }
 }

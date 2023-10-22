@@ -1,10 +1,10 @@
 @import "../../styles/partials/global";
 
 @include desktop {
-  .mainContent {
+  .mainPageContent {
     display: flex;
 
-    &__left {
+    &__leftPanel {
       border-right: 1px solid $Mercury;
     }
   }

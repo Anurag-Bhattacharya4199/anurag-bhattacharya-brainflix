@@ -6,8 +6,8 @@ import { useState } from "react";
 function App() {
   const [mainVideoData, setMainVideo] = useState(MainVideosDataList[0]);
 
-  const changeMainVideoData = (id) => {
-    const newVideo = MainVideosDataList.find((video) => video.id === id);
+  const changeMainVideoData = (videoID) => {
+    const newVideo = MainVideosDataList.find((video) => video.id === videoID);
     setMainVideo(newVideo);
   };
   return (

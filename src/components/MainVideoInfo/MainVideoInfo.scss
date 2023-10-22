@@ -8,8 +8,7 @@
   }
 
   &__title {
-    padding-top: $mobile-padding-before-headlines;
-    padding-bottom: $mobile-padding-after-headlines;
+    padding: $mobile-padding-before-headlines 0 $mobile-padding-after-headlines;
     border-bottom: 1px solid $Mercury;
     font-family: "AvenirNext-Bold";
     @include text-styles(24px, 32px, 700);
@@ -20,30 +19,30 @@
     @include text-styles(13px, 18px, 700);
   }
 
-  &__statistics {
+  &__baseStatics, &__description {
+    @include text-styles(13px, 18px, 400);
+  }
+
+  &__baseStatistics, &__description {
     padding: $mobile-padding-between-components 0;
+  }
+
+  &__baseStatistics {
     border-bottom: 1px solid $Mercury;
     display: flex;
     justify-content: space-between;
-    @include text-styles(13px, 18px, 400);
 
-    &-likes {
+    &-likesWrapper, &-date, &-viewsWrapper {
       color: $Silver;
     }
 
-    &-date {
-      color: $Silver;
-    }
-
-    &-channel {
+    &-channel, &-viewsWrapper {
       padding-bottom: $mobile-padding-between-components;
+    }
+    
+    &-channel {
       font-family: "AvenirNext-Bold";
       font-weight: 700;
-    }
-
-    &-views {
-      padding-bottom: $mobile-padding-between-components;
-      color: $Silver;
     }
 
     &-viewsIcon {
@@ -54,11 +53,6 @@
       padding-right: $mobile-padding-between-components;
     }
   }
-
-  &__description {
-    padding: $mobile-padding-between-components 0;
-    @include text-styles(13px, 18px, 400);
-  }
 }
 
 @include tablet {
@@ -68,31 +62,27 @@
       padding: 0 $desktop-padding-between-components;
     }
 
+    &__title, &__baseStatistics {
+      padding-bottom: 0;
+    }
+
     &__title {
       border-bottom: none;
-      padding-bottom: 0;
       @include text-styles(33px, 44px, 700);
     }
 
-    &__statistics {
-      padding-bottom: 0;
+    &__baseStatistics, &__description {
       @include text-styles(14px, 22px, 400);
+    }
 
-      &-1, &-2 {
+    &__baseStatistics {
+      &-leftSide, &-rightSide {
         display: flex;
       }
 
-      &-date {
+      &-date, &-likesWrapper {
         padding-left: $mobile-padding-between-components;
       }
-
-      &-likes {
-        padding-left: $mobile-padding-between-components;
-      }
-    }
-
-    &__description {
-      @include text-styles(14px, 22px, 400);
     }
 
     &__numComments {
@@ -103,8 +93,7 @@
 
 @include desktop {
   .mainVideoInfo__description {
-    padding-top: $desktop-padding-between-components;
-    padding-bottom: $desktop-padding-before-headlines;
+    padding: $desktop-padding-between-components 0 $desktop-padding-before-headlines;
   }
 
   .mainVideoInfo__numComments {
@@ -112,7 +101,6 @@
   }
 
   .mainVideoInfo__title {
-    padding-top: $desktop-padding-before-headlines;
-    padding-bottom: $desktop-padding-after-headlines;
+    padding: $desktop-padding-before-headlines 0 $desktop-padding-after-headlines;
   }
 }
