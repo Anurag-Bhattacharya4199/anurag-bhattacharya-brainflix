@@ -20,10 +20,10 @@ function MainPage(props) {
           <MainVideoCommentsList mainVideoData={mainVideoData} />
         </div>
         <div className="mainContent__right">
-          {/* <NextVideoList
+          <NextVideoList
             changeMainVideoData={changeMainVideoData}
             mainVideoId={mainVideoId}
-          /> */}
+          />
         </div>
       </section>
     </>

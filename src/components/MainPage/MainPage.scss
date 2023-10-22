@@ -3,5 +3,9 @@
 @include desktop {
   .mainContent {
     display: flex;
+
+    &__left {
+      border-right: 1px solid $Mercury;
+    }
   }
 }

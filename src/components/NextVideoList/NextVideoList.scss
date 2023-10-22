@@ -1,0 +1,47 @@
+@import "../../styles/partials/global";
+
+.nextVideos {
+  border-top: 1px solid $Mercury;
+  padding-left: $mobile-padding-between-components;
+  padding-right: $mobile-padding-between-components;
+  padding-bottom: $mobile-padding-between-components;
+
+  &__title {
+    font-family: "AvenirNext-Bold";
+    @include text-styles(12px, 20px, 700);
+    color: $Silver;
+    padding-top: $mobile-padding-before-headlines;
+    padding-bottom: $mobile-padding-after-headlines;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@include tablet {
+  .nextVideos {
+    padding-left: $desktop-padding-between-components;
+    padding-right: $desktop-padding-between-components;
+    padding-bottom: $desktop-padding-between-components;
+
+    &__title {
+      padding-top: $desktop-padding-before-headlines;
+      padding-bottom: $desktop-padding-after-headlines;
+    }
+
+    &__content {
+      gap: 1.5rem;
+    }
+  }
+}
+
+@include desktop {
+  .nextVideos {
+    &__content {
+      gap: 1rem;
+    }
+  }
+}
