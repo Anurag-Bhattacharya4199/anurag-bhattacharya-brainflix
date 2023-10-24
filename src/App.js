@@ -13,14 +13,20 @@ All the Imports needed for this file
 //App Styles
 import "./App.scss";
 
-//Main Page
-import MainPage from "./components/MainPage/MainPage";
-
 //MainVideoDataList from JSON File
 import MainVideosDataList from "./data/video-details.json";
 
 //Use of State from React library
 import { useState } from "react";
+
+import Header from "./components/Header/Header";
+
+//Main Page
+import MainPage from "./pages/MainPage/MainPage";
+
+import UploadPage from "./pages/UploadPage/UploadPage";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 /**
  * This function is the main App Function, that returns the container of the full website
@@ -42,12 +48,33 @@ function App() {
   //This returns the main container of the full website
   return (
     <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <MainPage
+                mainVideoData={mainVideoData}
+                changeMainVideoData={changeMainVideoData}
+                mainVideoId={mainVideoData.id}
+              />
+            }
+          />
+          <Route path="/upload" element={<UploadPage />} />
+          <Route
+            path="/video/:id"
+            element={
+              <MainPage
+                mainVideoData={mainVideoData}
+                changeMainVideoData={changeMainVideoData}
+                mainVideoId={mainVideoData.id}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
       {/*The Main Page Component is rendered here */}
-      <MainPage
-        mainVideoData={mainVideoData}
-        changeMainVideoData={changeMainVideoData}
-        mainVideoId={mainVideoData.id}
-      />
     </>
   );
 }

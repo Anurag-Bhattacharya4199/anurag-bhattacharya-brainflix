@@ -16,6 +16,8 @@ import Logo from "../../assets/images/logo/BrainFlix-logo.svg";
 //Importing Profile Pic Image from assets folder
 import ProfilePic from "../../assets/images/Mohan-muruge.jpg";
 
+import { Link } from "react-router-dom";
+
 /**
  *
  * @returns the container for the Header
@@ -46,9 +48,11 @@ function Header() {
           </div>
         </article>
         <article className="mainHeader__uploadWrapper">
-          <button className="mainHeader__uploadWrapper-uploadBtn">
-            UPLOAD
-          </button>
+          <Link to="/upload">
+            <button className="mainHeader__uploadWrapper-uploadBtn">
+              UPLOAD
+            </button>
+          </Link>
           <div className="mainHeader__uploadWrapper-uploadProfileWrapper">
             <img
               src={ProfilePic}

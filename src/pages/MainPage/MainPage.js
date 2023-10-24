@@ -10,17 +10,17 @@ I was unable to figure out the Diving Deeper Section for this Sprint
 Importing all files needed for this file
  */
 //Import Header Component
-import Header from "../Header/Header";
+import Header from "../../components/Header/Header";
 //Import MainVideo Component
-import MainVideo from "../MainVideo/MainVideo";
+import MainVideo from "../../components/MainVideo/MainVideo";
 //Import Main Video Info Component
-import MainVideoInfo from "../MainVideoInfo/MainVideoInfo";
+import MainVideoInfo from "../../components/MainVideoInfo/MainVideoInfo";
 //Import Comments Form Component
-import CommentsForm from "../CommentsForm/CommentsForm";
+import CommentsForm from "../../components/CommentsForm/CommentsForm";
 //Import Main Video Comments List Component
-import MainVideoCommentsList from "../MainVideoCommentsList/MainVideoCommentsList";
+import MainVideoCommentsList from "../../components/MainVideoCommentsList/MainVideoCommentsList";
 //Import Next Video List Component
-import NextVideoList from "../NextVideoList/NextVideoList";
+import NextVideoList from "../../components/NextVideoList/NextVideoList";
 //Import Main Page Stylesheet
 import "./MainPage.scss";
 
@@ -34,8 +34,6 @@ import "./MainPage.scss";
 function MainPage({ mainVideoData, changeMainVideoData, mainVideoId }) {
   return (
     <>
-      {/*Header Component */}
-      <Header />
       {/*MainVideo Component */}
       <MainVideo mainVideoData={mainVideoData} />
       {/*mainPageContent Component*/}
