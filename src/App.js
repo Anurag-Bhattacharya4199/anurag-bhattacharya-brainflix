@@ -11,18 +11,13 @@ All the Imports needed for this file
  */
 
 //App Styles
+import React from "react";
+
 import "./App.scss";
-
-//MainVideoDataList from JSON File
-import MainVideosDataList from "./data/video-details.json";
-
-//Use of State from React library
-import { useState } from "react";
 
 import Header from "./components/Header/Header";
 
-//Main Page
-import MainPage from "./pages/MainPage/MainPage";
+import HomePage from "./pages/HomePage/HomePage";
 
 import UploadPage from "./pages/UploadPage/UploadPage";
 
@@ -32,51 +27,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
  * This function is the main App Function, that returns the container of the full website
  * @returns container of website
  */
-function App() {
-  //Setting the main video data to be the 1st index of the main video data list array
-  const [mainVideoData, setMainVideo] = useState(MainVideosDataList[0]);
-
-  /**
-   * This function is used to find and set the main video to be displayed on the website
-   * @param int videoID
-   */
-  const changeMainVideoData = (videoID) => {
-    const newVideo = MainVideosDataList.find((video) => video.id === videoID);
-    setMainVideo(newVideo);
-  };
-
-  //This returns the main container of the full website
-  return (
-    <>
+class App extends React.Component {
+  render() {
+    return (
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <MainPage
-                mainVideoData={mainVideoData}
-                changeMainVideoData={changeMainVideoData}
-                mainVideoId={mainVideoData.id}
-              />
-            }
-          />
+          <Route path="/" element={<HomePage />} />
           <Route path="/upload" element={<UploadPage />} />
-          <Route
-            path="/video/:id"
-            element={
-              <MainPage
-                mainVideoData={mainVideoData}
-                changeMainVideoData={changeMainVideoData}
-                mainVideoId={mainVideoData.id}
-              />
-            }
-          />
+          <Route path="/video/:id" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
-      {/*The Main Page Component is rendered here */}
-    </>
-  );
+    );
+  }
 }
 
 export default App;

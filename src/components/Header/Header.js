@@ -26,13 +26,15 @@ function Header() {
   //Returns the container for the Header of the website
   return (
     <header className="mainHeader">
-      <div className="mainHeader__logoWrapper">
-        <img
-          src={Logo}
-          alt="Logo"
-          className="mainHeader__logoWrapper-logoImg"
-        />
-      </div>
+      <Link to="/">
+        <div className="mainHeader__logoWrapper">
+          <img
+            src={Logo}
+            alt="Logo"
+            className="mainHeader__logoWrapper-logoImg"
+          />
+        </div>
+      </Link>
       <nav className="mainHeader__navigation">
         <article className="mainHeader__searchWrapper">
           <input

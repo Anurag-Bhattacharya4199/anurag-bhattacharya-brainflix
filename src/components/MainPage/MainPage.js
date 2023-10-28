@@ -9,18 +9,16 @@ I was unable to figure out the Diving Deeper Section for this Sprint
 /*
 Importing all files needed for this file
  */
-//Import Header Component
-import Header from "../../components/Header/Header";
 //Import MainVideo Component
-import MainVideo from "../../components/MainVideo/MainVideo";
+import MainVideo from "../MainVideo/MainVideo";
 //Import Main Video Info Component
-import MainVideoInfo from "../../components/MainVideoInfo/MainVideoInfo";
+import MainVideoInfo from "../MainVideoInfo/MainVideoInfo";
 //Import Comments Form Component
-import CommentsForm from "../../components/CommentsForm/CommentsForm";
+import CommentsForm from "../CommentsForm/CommentsForm";
 //Import Main Video Comments List Component
-import MainVideoCommentsList from "../../components/MainVideoCommentsList/MainVideoCommentsList";
+import MainVideoCommentsList from "../MainVideoCommentsList/MainVideoCommentsList";
 //Import Next Video List Component
-import NextVideoList from "../../components/NextVideoList/NextVideoList";
+import NextVideoList from "../NextVideoList/NextVideoList";
 //Import Main Page Stylesheet
 import "./MainPage.scss";
 

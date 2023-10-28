@@ -1,0 +1,36 @@
+@import "../../styles/partials/global";
+
+.upload {
+  border-top: 1px solid $Mercury;
+  padding-left: $mobile-padding-between-components;
+  padding-right: $mobile-padding-between-components;
+
+  &__title {
+    padding-top: $mobile-padding-before-headlines;
+    padding-bottom: $mobile-padding-after-headlines;
+    font-family: "AvenirNext-Bold";
+    @include text-styles(24px, 32px, 700);
+  }
+
+  &__content {
+    padding-bottom: $mobile-padding-between-components;
+  }
+}
+
+@include tablet {
+  .upload {
+    padding-left: $desktop-padding-between-components;
+    padding-right: $desktop-padding-between-components;
+    padding-bottom: $desktop-padding-between-components;
+
+    &__title {
+      padding-top: $desktop-padding-before-headlines;
+      padding-bottom: $desktop-padding-after-headlines;
+      @include text-styles(33px, 44px, 700);
+    }
+
+    &__content {
+      padding-bottom: $desktop-padding-between-components;
+    }
+  }
+}

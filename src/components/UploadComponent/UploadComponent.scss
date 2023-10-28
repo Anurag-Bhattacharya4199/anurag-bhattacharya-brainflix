@@ -1,0 +1,172 @@
+@import "../../styles/partials/_global.scss";
+
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  &__title {
+    font-family: "AvenirNext-Bold";
+    color: $Silver;
+    @include text-styles(12px, 20px, 700);
+    padding-bottom: 4px;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: $mobile-padding-between-components;
+  }
+
+  &__videoTitle, &__descTitle {
+    color: $Silver;
+    font-family: "AvenirNext-Bold";
+    @include text-styles(12px, 22px, 700);
+  }
+  
+  &__descInp {
+    height: 36px;
+    padding-bottom: 3rem;
+    border: 1px solid $Mercury;
+    border-radius: 4px;
+    background-color: $Alabaster;
+    width: 100%;
+    font-family: 'AvenirNext-Bold';
+    position: relative;
+    @include text-styles(10px, 20px, 700);
+    //Styles for Placeholder
+    &::placeholder {
+      color: $BrainFlix-Black;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    //Styles for when input is focused
+    &:focus {
+      border: 2px solid $BrainFlix-Blue;
+    }
+  }
+
+  &__videoTitleInp {
+    width: 100%;
+    height: 2rem;
+    margin-bottom: $mobile-padding-between-components;
+    border: 1px solid $Mercury;
+    border-radius: 4px  ;
+    background-color: $Alabaster;
+    font-family: 'AvenirNext-Bold';
+    position: relative;
+    @include text-styles(10px, 20px, 700);
+
+    //Styles for Placeholder
+    &::placeholder {
+      color: $BrainFlix-Black;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+  }
+
+  &__publish {
+    @include mobile-button-styles(40px, 100%, 4px, no-repeat, 0.5rem);
+      background-color: $BrainFlix-Blue;
+      color: $White;
+      background-image: url("../../assets/images/icons/publish.svg");
+      font-family: 'AvenirNext-Bold';
+      @include text-styles(10px, 20px, 700);
+      margin-top: $mobile-padding-between-components;
+
+      //Styles of Hover Effort of Upload Button
+      &:hover {
+        background-color: $BrainFlix-DarkBlue;
+      }
+  }
+
+  &__cancel {
+    height: 40px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: 0.5rem;
+    background-color: $White;
+    color: $BrainFlix-Blue;
+    border: none;
+    background-image: url("../../assets/images/icons/upload.svg");
+    font-family: 'AvenirNext-Bold';
+    margin-top: $mobile-padding-between-components;
+    @include text-styles(10px, 20px, 700);
+    //Styles of Hover Effort of Upload Button
+    &:hover {
+      background-color: $BrainFlix-DarkBlue;
+    }
+  }
+}
+
+@include tablet {
+  .uploadForm {
+
+    &__topContent {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid $Mercury;
+      border-bottom: 1px solid $Mercury;
+      padding-top: $desktop-padding-between-components;
+      padding-bottom: $desktop-padding-between-components;
+    }
+
+    &__image {
+      width: 50%;
+      margin-bottom: $desktop-padding-between-components;  
+    }
+
+    &__descInp {
+      @include text-styles(12px, 20px, 700);
+    }
+  
+    &__videoTitleInp {
+      @include text-styles(12px, 20px, 700);
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    &__publish {
+      @include mobile-button-styles(40px, 150px, 4px, no-repeat, 0.5rem);
+      margin-top: $desktop-padding-between-components;
+      @include text-styles(12px, 20px, 700);
+      //Styles of Hover Effort of Upload Button
+      &:hover {
+        background-color: $BrainFlix-DarkBlue;
+      }
+    }
+  
+    &__cancel {
+      width: 150px;
+      margin-top: $desktop-padding-between-components;
+      @include text-styles(12px, 20px, 700);
+      //Styles of Hover Effort of Upload Button
+      &:hover {
+        background-color: $BrainFlix-DarkBlue;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .uploadForm {
+    &__topContent {
+      flex-direction: row;
+    }
+
+    &__leftContent {
+      width: 25%;
+      padding-right: $desktop-padding-between-components;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
+    &__rightContent {
+      width: 75%;
+    }
+  }
+}
