@@ -8,23 +8,13 @@ I was unable to figure out the Diving Deeper Section for this Sprint
 
 //Importing Main Video Comment Stylesheet
 import "./MainVideoComment.scss";
+import { convertDate } from "../../utils/utils";
 
 /**
  *
  * @param int time
  * @returns string of the timestamp in a local date format
  */
-function convertDate(time) {
-  let unixTimeStamp = time;
-  let date = new Date(unixTimeStamp);
-  let month = date.getMonth() + 1;
-  let day = date.getDate();
-  let year = date.getFullYear();
-  if (day < 10) day = "0" + day;
-  if (month < 10) month = "0" + month;
-  let dateString = `${month}/${day}/${year}`;
-  return dateString;
-}
 
 /**
  *
@@ -33,8 +23,9 @@ function convertDate(time) {
  * @param string comment
  * @returns the container of the main video
  */
-function MainVideoComment({ time, name, comment }) {
-  //Returns the container of the main video
+function MainVideoComment(props) {
+  const { time, name, comment } = props;
+
   return (
     <article className="mainVideoComment">
       <div className="mainVideoComment__avatarWrapper">
@@ -57,5 +48,4 @@ function MainVideoComment({ time, name, comment }) {
   );
 }
 
-//Exporting the MainVideoComment function
 export default MainVideoComment;

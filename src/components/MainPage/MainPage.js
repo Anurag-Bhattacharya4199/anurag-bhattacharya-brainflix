@@ -29,28 +29,31 @@ import "./MainPage.scss";
  * @param int mainVideoId
  * @returns the container for full Main Page (Home Page)
  */
-function MainPage({ mainVideoData, changeMainVideoData, mainVideoId }) {
+function MainPage(props) {
+  const { currentVideo, comments, mainVideoID } = props;
+
   return (
     <>
       {/*MainVideo Component */}
-      <MainVideo mainVideoData={mainVideoData} />
-      {/*mainPageContent Component*/}
+      <MainVideo currentVideo={currentVideo} />
       <section className="mainPageContent">
-        {/*Left Section (for Desktop) */}
         <div className="mainPageContent__leftPanel">
-          {/*MainVideoInfo Component */}
-          <MainVideoInfo mainVideoData={mainVideoData} />
-          {/*CommentsForm Component */}
+          <MainVideoInfo
+            title={currentVideo.title}
+            channel={currentVideo.channel}
+            timestamp={currentVideo.timestamp}
+            views={currentVideo.views}
+            likes={currentVideo.likes}
+            description={currentVideo.description}
+            numComments={comments.length}
+          />
           <CommentsForm />
-          {/*MainVideoCommentsList Component */}
-          <MainVideoCommentsList mainVideoData={mainVideoData} />
+          <MainVideoCommentsList comments={comments} />
         </div>
-        {/*Right Section (for Desktop) */}
         <div className="mainPageContent__rightPanel">
-          {/*NextVideoList Component */}
           <NextVideoList
-            changeMainVideoData={changeMainVideoData}
-            mainVideoId={mainVideoId}
+            currentVideo={currentVideo}
+            mainVideoID={mainVideoID}
           />
         </div>
       </section>

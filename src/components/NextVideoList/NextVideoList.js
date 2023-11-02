@@ -13,10 +13,10 @@ All the Import needed for this file
 import "./NextVideoList.scss";
 //Import Video Component
 import Video from "../NextVideo/NextVideo";
-//Import VideoListData Component
-import VideoListData from "../../data/videos.json";
 //Use of State from React Library
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { BRAINFLIX_BASE_API_URL, BRAINFLIX_API_KEY } from "../../utils/utils";
 
 /**
  *
@@ -24,30 +24,37 @@ import { useState } from "react";
  * @param function changeMainVideoData
  * @returns the container of the Next Videos List
  */
-function NextVideoList({ mainVideoId, changeMainVideoData }) {
-  //Videos Data from JSON File
-  const [videoData] = useState(VideoListData);
+function NextVideoList(props) {
+  const { mainVideoID } = props;
+  const [videos, setVideos] = useState([]);
+  const fetchVideos = () =>
+    axios
+      .get(`${BRAINFLIX_BASE_API_URL}/videos?api_key=${BRAINFLIX_API_KEY}`)
+      .then((response) => {
+        const filteredResponse = response.data.filter((item) => {
+          return item.id !== mainVideoID;
+        });
+        setVideos(filteredResponse);
+      });
+
+  useEffect(() => {
+    fetchVideos();
+  }, []);
 
   //Returns the container of the Next Videos List Section
   return (
     <section className="nextVideosList">
       <h1 className="nextVideosList__title">NEXT VIDEOS</h1>
       <article className="nextVideosList__mainContent">
-        {/*Filters the Video Data to not show the main video and creates a Video Component for each Video data*/}
-        {videoData
-          .filter((video) => {
-            return video.id !== mainVideoId;
-          })
-          .map((video) => (
-            <Video
-              key={video.id}
-              changeMainVideoData={changeMainVideoData}
-              image={video.image}
-              title={video.title}
-              channel={video.channel}
-              videoId={video.id}
-            />
-          ))}
+        {videos.map((item) => (
+          <Video
+            key={item.id}
+            image={item.image}
+            title={item.title}
+            channel={item.channel}
+            videoID={item.id}
+          />
+        ))}
       </article>
     </section>
   );

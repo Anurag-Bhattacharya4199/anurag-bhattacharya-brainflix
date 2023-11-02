@@ -17,13 +17,11 @@ import "./NextVideo.scss";
  * @param string image
  * @returns the container for a video, with functionality of changing main video, by clicking
  */
-function NextVideo({ videoId, title, channel, changeMainVideoData, image }) {
-  //returns the container for a video, with functionality to change the main video by clicking on a video element
+function NextVideo(props) {
+  const { title, channel, image } = props;
+
   return (
-    <section
-      className="videoContent"
-      onClick={() => changeMainVideoData(videoId)}
-    >
+    <section className="videoContent">
       {/* Video Image Wrapper */}
       <article className="videoContent__videoWrapper">
         {/*Video Image */}

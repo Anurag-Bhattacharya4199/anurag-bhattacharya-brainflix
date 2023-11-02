@@ -15,35 +15,28 @@ import "./MainVideoInfo.scss";
 import ViewsIcon from "../../assets/images/icons/views.svg";
 //Importing Likes Icon Image from assets folder
 import LikesIcon from "../../assets/images/icons/likes.svg";
+import { convertTime } from "../../utils/utils";
 
 /**
  *
  * @param int time
  * @returns a string to represent a local date from the time parameter
  */
-function convertTime(time) {
-  let unixTimeStamp = time;
-  let date = new Date(unixTimeStamp);
-  let month = date.getMonth() + 1;
-  let day = date.getDate();
-  let year = date.getFullYear();
-  if (day < 10) day = "0" + day;
-  if (month < 10) month = "0" + month;
-  let dateString = `${month}/${day}/${year}`;
-  return dateString;
-}
 
 /**
  *
  * @param array mainVideoData
  * @returns the container for the Main Video Information
  */
-function MainVideoInfo({ mainVideoData }) {
-  //Getting specific values from the array needed to be displayed
-  const { title, channel, timestamp, views, likes, description, comments } =
-    mainVideoData;
-
-  //returns the container for the Main Video Information
+function MainVideoInfo({
+  title,
+  channel,
+  timestamp,
+  views,
+  likes,
+  description,
+  numComments,
+}) {
   return (
     <section className="mainVideoInfo">
       <div className="mainVideoInfo__content">
@@ -77,7 +70,7 @@ function MainVideoInfo({ mainVideoData }) {
           </article>
         </section>
         <p className="mainVideoInfo__description">{description}</p>
-        <p className="mainVideoInfo__numComments">{comments.length} Comments</p>
+        <p className="mainVideoInfo__numComments">{numComments} Comments</p>
       </div>
     </section>
   );

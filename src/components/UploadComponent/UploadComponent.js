@@ -1,7 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import UploadVideoThumbnail from "../../assets/images/Upload-video-preview.jpg";
 import "./UploadComponent.scss";
 
 function UploadComponent() {
+  const navigate = useNavigate();
+  const handlePublish = () => {
+    alert("Video Uploaded");
+    navigate("/");
+  };
+  const handleCancel = () => {
+    alert("Video Upload Cancelled");
+    navigate("/");
+  };
   return (
     <form className="uploadForm">
       <div className="uploadForm__topContent">
@@ -33,8 +43,12 @@ function UploadComponent() {
         </div>
       </div>
       <div className="uploadForm__buttons">
-        <button className="uploadForm__publish">PUBLISH</button>
-        <button className="uploadForm__cancel">CANCEL</button>
+        <button className="uploadForm__publish" onClick={handlePublish}>
+          PUBLISH
+        </button>
+        <button className="uploadForm__cancel" onClick={handleCancel}>
+          CANCEL
+        </button>
       </div>
     </form>
   );

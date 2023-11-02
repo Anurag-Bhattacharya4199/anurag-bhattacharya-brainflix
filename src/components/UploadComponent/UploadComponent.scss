@@ -83,18 +83,15 @@
   &__cancel {
     height: 40px;
     width: 100%;
-    background-repeat: no-repeat;
-    background-position: 0.5rem;
     background-color: $White;
     color: $BrainFlix-Blue;
     border: none;
-    background-image: url("../../assets/images/icons/upload.svg");
     font-family: 'AvenirNext-Bold';
     margin-top: $mobile-padding-between-components;
     @include text-styles(10px, 20px, 700);
     //Styles of Hover Effort of Upload Button
     &:hover {
-      background-color: $BrainFlix-DarkBlue;
+      text-decoration: underline;
     }
   }
 }
@@ -135,6 +132,7 @@
       //Styles of Hover Effort of Upload Button
       &:hover {
         background-color: $BrainFlix-DarkBlue;
+        cursor: pointer;
       }
     }
   
@@ -142,9 +140,9 @@
       width: 150px;
       margin-top: $desktop-padding-between-components;
       @include text-styles(12px, 20px, 700);
-      //Styles of Hover Effort of Upload Button
+
       &:hover {
-        background-color: $BrainFlix-DarkBlue;
+        cursor: pointer;
       }
     }
   }

@@ -20,13 +20,14 @@ import MainVideoComment from "../MainVideoComment/MainVideoComment";
  * @returns the container for the Main Video Comments List
  */
 function MainVideoCommentsList(props) {
+  const { comments } = props;
   //Get the Comments Sub Array from Main Video Data array
-  const { comments } = props.mainVideoData;
-
+  if (props.comments.length === 0) {
+    return;
+  }
   //Returns the container for the Main Video Comments List
   return (
     <section className="mainVideoCommentsList">
-      {/*This maps the Comments Array and creates a Main Video Comment Element for each comment data */}
       {comments.map((comment) => (
         <MainVideoComment
           key={comment.id}

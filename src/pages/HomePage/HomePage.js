@@ -1,30 +1,38 @@
-//MainVideoDataList from JSON File
-import MainVideosDataList from "../../data/video-details.json";
-
 //Use of State from React library
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import MainPage from "../../components/MainPage/MainPage";
+import axios from "axios";
+
+import { BRAINFLIX_BASE_API_URL, BRAINFLIX_API_KEY } from "../../utils/utils";
 
 function HomePage() {
-  //Setting the main video data to be the 1st index of the main video data list array
-  const [mainVideoData, setMainVideo] = useState(MainVideosDataList[0]);
+  const firstVideoID = "84e96018-4022-434e-80bf-000ce4cd12b8";
+  const [video, setVideo] = useState([]);
+  const [videoComments, setVideoComments] = useState([]);
+  const [mainVideoID, setMainVideoID] = useState([]);
 
-  /**
-   * This function is used to find and set the main video to be displayed on the website
-   * @param int videoID
-   */
-  const changeMainVideoData = (videoID) => {
-    const newVideo = MainVideosDataList.find((video) => video.id === videoID);
-    setMainVideo(newVideo);
-  };
+  const fetchFirstVideo = () =>
+    axios
+      .get(
+        `${BRAINFLIX_BASE_API_URL}/videos/${firstVideoID}?api_key=${BRAINFLIX_API_KEY}`
+      )
+      .then((response) => {
+        setVideo(response.data);
+        setVideoComments(response.data.comments);
+        setMainVideoID(response.data.id);
+      });
+
+  useEffect(() => {
+    fetchFirstVideo();
+  }, []);
 
   return (
     <>
       <MainPage
-        mainVideoData={mainVideoData}
-        changeMainVideoData={changeMainVideoData}
-        mainVideoId={mainVideoData.id}
+        currentVideo={video}
+        comments={videoComments}
+        mainVideoID={mainVideoID}
       />
     </>
   );

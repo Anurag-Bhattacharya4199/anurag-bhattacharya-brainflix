@@ -7,6 +7,7 @@ I was unable to figure out the Diving Deeper Section for this Sprint
 */
 
 //Importing the Main Video Stylesheet
+import { BRAINFLIX_API_KEY } from "../../utils/utils";
 import "./MainVideo.scss";
 
 /**
@@ -15,8 +16,8 @@ import "./MainVideo.scss";
  * @returns the container for the main video
  */
 function MainVideo(props) {
-  //Image and Video data from mainVideoData array
-  const { image, video } = props.mainVideoData;
+  const { currentVideo } = props;
+  const { image, video } = currentVideo;
 
   //Returns container for the main video
   return (
@@ -25,7 +26,7 @@ function MainVideo(props) {
         poster={image}
         className="mainVideo__video"
         controls
-        src={video}
+        src={`${video}?api_key=${BRAINFLIX_API_KEY}`}
       ></video>
     </section>
   );
