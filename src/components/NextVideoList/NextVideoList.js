@@ -13,10 +13,6 @@ All the Import needed for this file
 import "./NextVideoList.scss";
 //Import Video Component
 import Video from "../NextVideo/NextVideo";
-//Use of State from React Library
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { BRAINFLIX_BASE_API_URL, BRAINFLIX_API_KEY } from "../../utils/utils";
 
 /**
  *
@@ -24,35 +20,18 @@ import { BRAINFLIX_BASE_API_URL, BRAINFLIX_API_KEY } from "../../utils/utils";
  * @param function changeMainVideoData
  * @returns the container of the Next Videos List
  */
-function NextVideoList(props) {
-  const { mainVideoID } = props;
-  const [videos, setVideos] = useState([]);
-  const fetchVideos = () =>
-    axios
-      .get(`${BRAINFLIX_BASE_API_URL}/videos?api_key=${BRAINFLIX_API_KEY}`)
-      .then((response) => {
-        const filteredResponse = response.data.filter((item) => {
-          return item.id !== mainVideoID;
-        });
-        setVideos(filteredResponse);
-      });
-
-  useEffect(() => {
-    fetchVideos();
-  }, []);
-
-  //Returns the container of the Next Videos List Section
+function NextVideoList({ videoList }) {
   return (
     <section className="nextVideosList">
       <h1 className="nextVideosList__title">NEXT VIDEOS</h1>
       <article className="nextVideosList__mainContent">
-        {videos.map((item) => (
+        {videoList.map((video) => (
           <Video
-            key={item.id}
-            image={item.image}
-            title={item.title}
-            channel={item.channel}
-            videoID={item.id}
+            key={video.id}
+            image={video.image}
+            title={video.title}
+            channel={video.channel}
+            videoID={video.id}
           />
         ))}
       </article>

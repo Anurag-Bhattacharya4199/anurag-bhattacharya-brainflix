@@ -13,19 +13,12 @@ import { convertDate } from "../../utils/utils";
 /**
  *
  * @param int time
- * @returns string of the timestamp in a local date format
- */
-
-/**
- *
- * @param int time
  * @param string name
  * @param string comment
  * @returns the container of the main video
  */
-function MainVideoComment(props) {
-  const { time, name, comment } = props;
-
+function MainVideoComment({ name, time, comment }) {
+  const convertedDate = convertDate(time);
   return (
     <article className="mainVideoComment">
       <div className="mainVideoComment__avatarWrapper">
@@ -37,7 +30,7 @@ function MainVideoComment(props) {
             {name}
           </h3>
           <p className="mainVideoComment__commentContent-header__date">
-            {convertDate(time)}
+            {convertedDate}
           </p>
         </div>
         <span className="mainVideoComment__commentContent-comment">

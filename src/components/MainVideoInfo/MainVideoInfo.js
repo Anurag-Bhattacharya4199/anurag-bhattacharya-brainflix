@@ -15,28 +15,15 @@ import "./MainVideoInfo.scss";
 import ViewsIcon from "../../assets/images/icons/views.svg";
 //Importing Likes Icon Image from assets folder
 import LikesIcon from "../../assets/images/icons/likes.svg";
-import { convertTime } from "../../utils/utils";
+import { convertDate } from "../../utils/utils";
 
-/**
- *
- * @param int time
- * @returns a string to represent a local date from the time parameter
- */
+function MainVideoInfo({ videoInfo }) {
+  const { timestamp, comments, title, channel, views, likes, description } =
+    videoInfo;
 
-/**
- *
- * @param array mainVideoData
- * @returns the container for the Main Video Information
- */
-function MainVideoInfo({
-  title,
-  channel,
-  timestamp,
-  views,
-  likes,
-  description,
-  numComments,
-}) {
+  const convertedDate = convertDate(timestamp);
+  const numComments = comments.length;
+
   return (
     <section className="mainVideoInfo">
       <div className="mainVideoInfo__content">
@@ -47,7 +34,7 @@ function MainVideoInfo({
               By {channel}
             </p>
             <p className="mainVideoInfo__baseStatistics-date">
-              {convertTime(timestamp)}
+              {convertedDate}
             </p>
           </article>
           <article className="mainVideoInfo__baseStatistics-rightSide">

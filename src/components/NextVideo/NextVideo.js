@@ -7,6 +7,7 @@ I was unable to figure out the Diving Deeper Section for this Sprint
 */
 
 //Import Next Video Stylesheet
+import { Link } from "react-router-dom";
 import "./NextVideo.scss";
 
 /**
@@ -18,25 +19,27 @@ import "./NextVideo.scss";
  * @returns the container for a video, with functionality of changing main video, by clicking
  */
 function NextVideo(props) {
-  const { title, channel, image } = props;
+  const { title, channel, image, videoID } = props;
 
   return (
-    <section className="videoContent">
-      {/* Video Image Wrapper */}
-      <article className="videoContent__videoWrapper">
-        {/*Video Image */}
-        <img
-          src={image}
-          alt="Video Poster"
-          className="videoContent__videoWrapper-video"
-        />
-      </article>
-      {/*Video Content */}
-      <article className="videoContent__content">
-        <h1 className="videoContent__content-title">{title}</h1>
-        <p className="videoContent__content-channel">{channel}</p>
-      </article>
-    </section>
+    <Link to={`/videos/${videoID}`} className="hyperLink">
+      <section className="videoContent">
+        {/* Video Image Wrapper */}
+        <article className="videoContent__videoWrapper">
+          {/*Video Image */}
+          <img
+            src={image}
+            alt="Video Poster"
+            className="videoContent__videoWrapper-video"
+          />
+        </article>
+        {/*Video Content */}
+        <article className="videoContent__content">
+          <h1 className="videoContent__content-title">{title}</h1>
+          <p className="videoContent__content-channel">{channel}</p>
+        </article>
+      </section>
+    </Link>
   );
 }
 

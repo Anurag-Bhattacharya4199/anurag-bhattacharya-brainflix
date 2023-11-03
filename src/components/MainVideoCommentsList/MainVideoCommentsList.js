@@ -13,22 +13,21 @@ Importing all files needed for this file
 import "./MainVideoCommentsList.scss";
 //Importing Main Video Comment Component
 import MainVideoComment from "../MainVideoComment/MainVideoComment";
+import { convertDate } from "../../utils/utils";
 
 /**
  *
  * @param object props
  * @returns the container for the Main Video Comments List
  */
-function MainVideoCommentsList(props) {
-  const { comments } = props;
-  //Get the Comments Sub Array from Main Video Data array
-  if (props.comments.length === 0) {
+function MainVideoCommentsList({ videoComments }) {
+  if (videoComments.length === 0) {
     return;
   }
-  //Returns the container for the Main Video Comments List
+
   return (
     <section className="mainVideoCommentsList">
-      {comments.map((comment) => (
+      {videoComments.map((comment) => (
         <MainVideoComment
           key={comment.id}
           name={comment.name}

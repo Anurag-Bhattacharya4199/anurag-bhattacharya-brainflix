@@ -9,6 +9,9 @@ I was unable to figure out the Diving Deeper Section for this Sprint
 //Importing Global Partial Stylesheet
 @import "../../styles/partials/global";
 
+.hyperLink {
+  text-decoration: none;
+}
 //Styles for a Video
 .videoContent {
   display: flex;

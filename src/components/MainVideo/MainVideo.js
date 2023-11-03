@@ -15,9 +15,8 @@ import "./MainVideo.scss";
  * @param array props
  * @returns the container for the main video
  */
-function MainVideo(props) {
-  const { currentVideo } = props;
-  const { image, video } = currentVideo;
+function MainVideo({ videoInfo }) {
+  const { image, video } = videoInfo;
 
   //Returns container for the main video
   return (
