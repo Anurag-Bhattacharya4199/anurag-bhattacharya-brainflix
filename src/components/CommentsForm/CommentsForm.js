@@ -13,6 +13,7 @@ Importing all the files needed for this file
 import "./CommentsForm.scss";
 //Importing the Form Avatar from assets folder
 import FormAvatar from "../../assets/images/Mohan-muruge.jpg";
+import { handleSubmit } from "../../utils/utils";
 
 /**
  *
@@ -26,7 +27,7 @@ function CommentsForm() {
           <label className="commentsForm__contentWrapper-title">
             JOIN THE CONVERSATION
           </label>
-          <form className="commentsForm__form">
+          <form className="commentsForm__form" onSubmit={handleSubmit}>
             <input
               className="commentsForm__form-input"
               name="comment"

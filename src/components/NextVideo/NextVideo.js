@@ -18,9 +18,7 @@ import "./NextVideo.scss";
  * @param string image
  * @returns the container for a video, with functionality of changing main video, by clicking
  */
-function NextVideo(props) {
-  const { title, channel, image, videoID } = props;
-
+function NextVideo({ title, channel, image, videoID }) {
   return (
     <Link to={`/videos/${videoID}`} className="hyperLink">
       <section className="videoContent">

@@ -13,7 +13,6 @@ Importing all files needed for this file
 import "./MainVideoCommentsList.scss";
 //Importing Main Video Comment Component
 import MainVideoComment from "../MainVideoComment/MainVideoComment";
-import { convertDate } from "../../utils/utils";
 
 /**
  *

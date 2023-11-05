@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   firstVideoID,
   searchVideosAll,
-  getVideos,
+  getVideoList,
   singleVideoData,
 } from "../../utils/utils";
 import axios from "axios";
@@ -12,31 +12,31 @@ import MainPage from "../../components/MainPage/MainPage";
 
 function HomePage() {
   const [baseVideo] = useState(firstVideoID);
-  const [baseVideoID, setBaseVideoID] = useState(baseVideo);
+  const [videoID, setVideoID] = useState(baseVideo);
   const [videoList, setVideoList] = useState();
   const [videoInfo, setVideoInfo] = useState();
 
   const fetchVideoList = () =>
     axios.get(searchVideosAll).then((response) => {
-      const filteredVideos = getVideos(baseVideoID, response.data);
+      const filteredVideos = getVideoList(videoID, response.data);
       setVideoList(filteredVideos);
     });
 
   useEffect(() => {
     fetchVideoList();
-  }, [baseVideoID]);
+  }, [videoID]);
 
   const fetchVideoInfo = () =>
-    axios.get(singleVideoData(baseVideoID)).then((response) => {
+    axios.get(singleVideoData(videoID)).then((response) => {
       setVideoInfo(response.data);
     });
 
   useEffect(() => {
     fetchVideoInfo();
-  }, [baseVideoID]);
+  }, [videoID]);
 
   const handleVideoChange = (videoId) => {
-    setBaseVideoID(videoId);
+    setVideoID(videoId);
   };
 
   const { videoId } = useParams();

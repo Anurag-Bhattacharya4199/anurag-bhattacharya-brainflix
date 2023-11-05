@@ -11,6 +11,9 @@ I was unable to figure out the Diving Deeper Section for this Sprint
 
 .hyperLink {
   text-decoration: none;
+  &:hover {
+    border: 1px solid $BrainFlix-Blue;
+  }
 }
 //Styles for a Video
 .videoContent {

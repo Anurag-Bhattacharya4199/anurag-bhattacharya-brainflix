@@ -14,11 +14,8 @@ All the Imports needed for this file
 import "./App.scss";
 
 import Header from "./components/Header/Header";
-
 import HomePage from "./pages/HomePage/HomePage";
-
 import UploadPage from "./pages/UploadPage/UploadPage";
-
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
