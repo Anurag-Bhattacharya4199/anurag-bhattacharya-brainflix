@@ -1,9 +1,13 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 1
-Description: This is the Next Video List Component JS File
+Project: BrainFlix - Sprint 2
+Description:
+This is the NextVideoList.js
+In this file, the container of all the videos in the side panel
 Diving Deeper Notes:
-I was unable to figure out the Diving Deeper Section for this Sprint
+- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
+- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
+- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
 */
 
 /*
@@ -15,9 +19,8 @@ import "./NextVideoList.scss";
 import Video from "../NextVideo/NextVideo";
 
 /**
- *
- * @param int mainVideoId
- * @param function changeMainVideoData
+ * Thus function returns the container for the side video panel component
+ * @param array videoList
  * @returns the container of the Next Videos List
  */
 function NextVideoList({ videoList }) {

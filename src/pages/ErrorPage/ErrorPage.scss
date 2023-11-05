@@ -1,15 +1,31 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 2
+Description:
+This is the ErrorPage.scss File
+In this file, the styling of the Error Page
+Diving Deeper Notes:
+- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
+- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
+- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+*/
+
+//Import Global Partials Stylesheet
 @import "../../styles//partials/global";
 
+//Styles for error page
 .errorPage {
 
   text-align: center;
 
+  //Styles for title
   &__title {
     padding: $mobile-padding-before-headlines 0 $mobile-padding-after-headlines;
     font-family: "AvenirNext-Bold";
     @include text-styles(24px, 32px, 700);
   }
 
+  //Styles for Home Button
   &__homeBtn {
     height: 40px;
     width: 100%;
@@ -19,7 +35,7 @@
     font-family: 'AvenirNext-Bold';
     margin-top: $mobile-padding-between-components;
     @include text-styles(10px, 20px, 700);
-    //Styles of Hover Effort of Upload Button
+    //Styles of Hover Effort of Home Button
     &:hover {
       cursor: pointer;
       text-decoration: underline;

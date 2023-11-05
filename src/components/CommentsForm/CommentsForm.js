@@ -1,9 +1,13 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 1
-Description: This is the Comments Form Component JS File
+Project: BrainFlix - Sprint 2
+Description:
+This is the CommentsForm.js File
+In this file, the Comments Form component is built
 Diving Deeper Notes:
-I was unable to figure out the Diving Deeper Section for this Sprint
+- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
+- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
+- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
 */
 
 /*
@@ -13,10 +17,11 @@ Importing all the files needed for this file
 import "./CommentsForm.scss";
 //Importing the Form Avatar from assets folder
 import FormAvatar from "../../assets/images/Mohan-muruge.jpg";
+//Importing handleSubmit from utils folder
 import { handleSubmit } from "../../utils/utils";
 
 /**
- *
+ * This function returns the Comments Form component
  * @returns the container of the Comments Form section
  */
 function CommentsForm() {

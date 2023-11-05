@@ -1,10 +1,24 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 2
+Description:
+This is the UploadPage.scss File
+In this file, the styling of the UploadPage
+Diving Deeper Notes:
+- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
+- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
+- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+*/
+
+//Import Global Partials Stylesheet
 @import "../../styles/partials/global";
 
+//Styles for upload
 .upload {
   border-top: 1px solid $Mercury;
-  padding-left: $mobile-padding-between-components;
-  padding-right: $mobile-padding-between-components;
+  padding: 0 $mobile-padding-between-components;
 
+  //Styles for title
   &__title {
     padding-top: $mobile-padding-before-headlines;
     padding-bottom: $mobile-padding-after-headlines;
@@ -12,17 +26,17 @@
     @include text-styles(24px, 32px, 700);
   }
 
+  //Styles for content
   &__content {
     padding-bottom: $mobile-padding-between-components;
   }
 }
 
+//Tablet Styles
 @include tablet {
   .upload {
-    padding-left: $desktop-padding-between-components;
-    padding-right: $desktop-padding-between-components;
-    padding-bottom: $desktop-padding-between-components;
-
+    padding: $desktop-padding-between-components;
+    
     &__title {
       padding-top: $desktop-padding-before-headlines;
       padding-bottom: $desktop-padding-after-headlines;

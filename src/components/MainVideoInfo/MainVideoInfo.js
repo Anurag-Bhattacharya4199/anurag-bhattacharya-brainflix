@@ -1,9 +1,13 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 1
-Description: This is the Main Video Info Component JS File
+Project: BrainFlix - Sprint 2
+Description:
+This is the MainVideoInfo.js File
+In this file, the Video Information component is built
 Diving Deeper Notes:
-I was unable to figure out the Diving Deeper Section for this Sprint
+- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
+- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
+- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
 */
 
 /*
@@ -15,15 +19,25 @@ import "./MainVideoInfo.scss";
 import ViewsIcon from "../../assets/images/icons/views.svg";
 //Importing Likes Icon Image from assets folder
 import LikesIcon from "../../assets/images/icons/likes.svg";
+//Importing the convertData function from utils folder
 import { convertDate } from "../../utils/utils";
 
+/**
+ * This function returns the container of the video information
+ * @param object videoInfo
+ * @returns the container of the video information
+ */
 function MainVideoInfo({ videoInfo }) {
+  //Destructures the video info prop to the specific values of timestamp, comments, title, channel, views, likes and description
   const { timestamp, comments, title, channel, views, likes, description } =
     videoInfo;
 
+  //Converts the timestamp to a more real-time date value
   const convertedDate = convertDate(timestamp);
+  //Gets the number of comments for the video
   const numComments = comments.length;
 
+  //Returns the container of the video information
   return (
     <section className="mainVideoInfo">
       <div className="mainVideoInfo__content">

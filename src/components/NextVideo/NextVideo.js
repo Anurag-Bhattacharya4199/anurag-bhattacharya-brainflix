@@ -1,22 +1,30 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 1
-Description: This is the Next Video Component JS File
+Project: BrainFlix - Sprint 2
+Description:
+This is the NextVideo.js
+In this file, the video container for each side video panel is built
 Diving Deeper Notes:
-I was unable to figure out the Diving Deeper Section for this Sprint
+- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
+- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
+- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
 */
 
-//Import Next Video Stylesheet
+/*
+All the imported files needed for this file
+ */
+//Import Link from react router dom package
 import { Link } from "react-router-dom";
+//Importing the Stylesheet of this file
 import "./NextVideo.scss";
 
 /**
- * @param int videoId
+ * This function returns the container for each side video panel
  * @param string title
  * @param string channel
- * @param function changeMainVideoData
  * @param string image
- * @returns the container for a video, with functionality of changing main video, by clicking
+ * @param int videoID
+ * @returns the container for a video, with functionality of changing the main video, by linking to a new route with the videoID
  */
 function NextVideo({ title, channel, image, videoID }) {
   return (

@@ -1,8 +1,24 @@
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 2
+Description:
+This is the UploadComponent.scss File
+In this file, the styling of the upload component
+Diving Deeper Notes:
+- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
+- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
+- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+*/
+
+//Import Global Partials Stylesheet
 @import "../../styles/partials/_global.scss";
 
+//Styles for upload Form
 .uploadForm {
   display: flex;
   flex-direction: column;
+
+  //Styles for the title
   &__title {
     font-family: "AvenirNext-Bold";
     color: $Silver;
@@ -10,18 +26,21 @@
     padding-bottom: 4px;
   }
 
+  //Styles for the image
   &__image {
     width: 100%;
     border-radius: 4px;
     margin-bottom: $mobile-padding-between-components;
   }
 
+  //Styles for the video title and description title
   &__videoTitle, &__descTitle {
     color: $Silver;
     font-family: "AvenirNext-Bold";
     @include text-styles(12px, 22px, 700);
   }
   
+  //Styles for the description input
   &__descInp {
     height: 36px;
     padding-bottom: 3rem;
@@ -45,6 +64,7 @@
     }
   }
 
+  //Styles for the video title input
   &__videoTitleInp {
     width: 100%;
     height: 2rem;
@@ -65,6 +85,7 @@
     }
   }
 
+  //Styles for publish button
   &__publish {
     @include mobile-button-styles(40px, 100%, 4px, no-repeat, 0.5rem);
       background-color: $BrainFlix-Blue;
@@ -74,12 +95,14 @@
       @include text-styles(10px, 20px, 700);
       margin-top: $mobile-padding-between-components;
 
-      //Styles of Hover Effort of Upload Button
+      //Styles of Hover Effort of Publish Button
       &:hover {
         background-color: $BrainFlix-DarkBlue;
+        cursor: pointer;
       }
   }
 
+  //Styles for the cancel button
   &__cancel {
     height: 40px;
     width: 100%;
@@ -89,13 +112,15 @@
     font-family: 'AvenirNext-Bold';
     margin-top: $mobile-padding-between-components;
     @include text-styles(10px, 20px, 700);
-    //Styles of Hover Effort of Upload Button
+    //Styles of Hover Effort of Cancel Button
     &:hover {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 }
 
+//Tablet styles
 @include tablet {
   .uploadForm {
 
@@ -104,8 +129,7 @@
       flex-direction: column;
       border-top: 1px solid $Mercury;
       border-bottom: 1px solid $Mercury;
-      padding-top: $desktop-padding-between-components;
-      padding-bottom: $desktop-padding-between-components;
+      padding: $desktop-padding-between-components 0;
     }
 
     &__image {
@@ -129,25 +153,17 @@
       @include mobile-button-styles(40px, 150px, 4px, no-repeat, 0.5rem);
       margin-top: $desktop-padding-between-components;
       @include text-styles(12px, 20px, 700);
-      //Styles of Hover Effort of Upload Button
-      &:hover {
-        background-color: $BrainFlix-DarkBlue;
-        cursor: pointer;
-      }
     }
   
     &__cancel {
       width: 150px;
       margin-top: $desktop-padding-between-components;
       @include text-styles(12px, 20px, 700);
-
-      &:hover {
-        cursor: pointer;
-      }
     }
   }
 }
 
+//Desktop styles
 @include desktop {
   .uploadForm {
     &__topContent {

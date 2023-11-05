@@ -1,21 +1,48 @@
-import { useEffect } from "react";
+/*
+Name: Anurag Bhattacharya
+Project: BrainFlix - Sprint 2
+Description:
+This is the HomePage.js File
+In this file, the home page container
+Diving Deeper Notes:
+- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
+- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
+- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+*/
+
+//Importing all the files needed for this file
+
+//Importing useEffect and useState from react package
+import { useEffect, useState } from "react";
+//Importing useParams from react router dom package
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+//Importing firstVideoID, searchVideosAll function, getvideoList function, singleVideoData function from utils folder
 import {
   firstVideoID,
   searchVideosAll,
   getVideoList,
   singleVideoData,
 } from "../../utils/utils";
+//Import axios from axios package
 import axios from "axios";
+//Importing MainPage Component
 import MainPage from "../../components/MainPage/MainPage";
 
+/**
+ * This function returns the Main Page component
+ * @returns the MainPage component
+ */
 function HomePage() {
+  //States for the base video, video ID, video List and video Info
   const [baseVideo] = useState(firstVideoID);
   const [videoID, setVideoID] = useState(baseVideo);
   const [videoList, setVideoList] = useState();
   const [videoInfo, setVideoInfo] = useState();
 
+  /**
+   * This function fetches all the videos in an array
+   * @sets the video List state
+   */
   const fetchVideoList = () =>
     axios.get(searchVideosAll).then((response) => {
       const filteredVideos = getVideoList(videoID, response.data);
@@ -26,6 +53,10 @@ function HomePage() {
     fetchVideoList();
   }, [videoID]);
 
+  /**
+   * This function fetches the video information for a specific videoID
+   * @sets the video Info state
+   */
   const fetchVideoInfo = () =>
     axios.get(singleVideoData(videoID)).then((response) => {
       setVideoInfo(response.data);
@@ -35,12 +66,21 @@ function HomePage() {
     fetchVideoInfo();
   }, [videoID]);
 
+  /**
+   * This function handles the video change on clicking on the side video panel
+   * @param int videoId
+   * @sets the videoID
+   */
   const handleVideoChange = (videoId) => {
     setVideoID(videoId);
   };
 
+  //Use Params for videoID
   const { videoId } = useParams();
 
+  /**
+   * This function checks whether the user is routing to the Home Page or a specific video with a videoID
+   */
   useEffect(() => {
     if (videoId) {
       if (Object.keys(videoId).length !== 0) {
@@ -51,6 +91,7 @@ function HomePage() {
     }
   }, [videoId]);
 
+  //Returns the MainPage Component
   return (
     <MainPage
       videoList={videoList}
@@ -61,4 +102,5 @@ function HomePage() {
   );
 }
 
+//Export the function
 export default HomePage;
