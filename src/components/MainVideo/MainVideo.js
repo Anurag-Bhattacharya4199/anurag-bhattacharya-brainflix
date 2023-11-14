@@ -13,8 +13,6 @@ Diving Deeper Notes:
 /*
 All the imported files needed for this file
  */
-//Importing the API Key from utils folder
-import { BRAINFLIX_API_KEY } from "../../utils/utils";
 //Importing the Stylesheet
 import "./MainVideo.scss";
 
@@ -34,7 +32,7 @@ function MainVideo({ videoInfo }) {
         poster={image}
         className="mainVideo__video"
         controls
-        src={`${video}?api_key=${BRAINFLIX_API_KEY}`}
+        src={`${video}/?api_key='Anurag'`}
       ></video>
     </section>
   );

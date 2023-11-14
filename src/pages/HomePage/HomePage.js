@@ -39,10 +39,6 @@ function HomePage() {
   const [videoList, setVideoList] = useState();
   const [videoInfo, setVideoInfo] = useState();
 
-  /**
-   * This function fetches all the videos in an array
-   * @sets the video List state
-   */
   const fetchVideoList = () =>
     axios.get(searchVideosAll).then((response) => {
       const filteredVideos = getVideoList(videoID, response.data);
@@ -53,10 +49,6 @@ function HomePage() {
     fetchVideoList();
   }, [videoID]);
 
-  /**
-   * This function fetches the video information for a specific videoID
-   * @sets the video Info state
-   */
   const fetchVideoInfo = () =>
     axios.get(singleVideoData(videoID)).then((response) => {
       setVideoInfo(response.data);
@@ -66,21 +58,12 @@ function HomePage() {
     fetchVideoInfo();
   }, [videoID]);
 
-  /**
-   * This function handles the video change on clicking on the side video panel
-   * @param int videoId
-   * @sets the videoID
-   */
   const handleVideoChange = (videoId) => {
     setVideoID(videoId);
   };
 
-  //Use Params for videoID
   const { videoId } = useParams();
 
-  /**
-   * This function checks whether the user is routing to the Home Page or a specific video with a videoID
-   */
   useEffect(() => {
     if (videoId) {
       if (Object.keys(videoId).length !== 0) {
@@ -91,7 +74,6 @@ function HomePage() {
     }
   }, [videoId]);
 
-  //Returns the MainPage Component
   return (
     <MainPage
       videoList={videoList}

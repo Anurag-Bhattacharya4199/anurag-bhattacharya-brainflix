@@ -14,18 +14,15 @@ Diving Deeper Notes:
 import moment from "moment/moment";
 
 //API URL, API KEY, firstVideoID, getting all Videos URL, api endpoint
-export const BRAINFLIX_BASE_API_URL = "https://project-2-api.herokuapp.com";
-export const BRAINFLIX_API_KEY = "7313034f-58cc-4587-b47b-18dae67308e3";
+export const BRAINFLIX_BASE_API_URL = "http://localhost:5050";
 export const firstVideoID = "84e96018-4022-434e-80bf-000ce4cd12b8";
 export const allVideosURL = `${BRAINFLIX_BASE_API_URL}/videos`;
-export const api_keyEndpoint = `?api_key=${BRAINFLIX_API_KEY}`;
 
 //Getting video information for a video based on videoID
-export const singleVideoData = (videoId) =>
-  `${allVideosURL}/${videoId}${api_keyEndpoint}`;
+export const singleVideoData = (videoId) => `${allVideosURL}/${videoId}`;
 
 //URL for searching all videos
-export const searchVideosAll = `${allVideosURL}${api_keyEndpoint}`;
+export const searchVideosAll = `${allVideosURL}`;
 
 //Get full Video List
 export const getVideoList = (videoId, videoArray) => {
