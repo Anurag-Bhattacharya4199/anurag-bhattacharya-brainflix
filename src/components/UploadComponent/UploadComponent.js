@@ -20,6 +20,12 @@ import UploadVideoThumbnail from "../../assets/images/Upload-video-preview.jpg";
 //Importing the stylesheet of this file
 import "./UploadComponent.scss";
 
+import { useRef } from "react";
+
+import axios from "axios";
+
+import { searchVideosAll, postHeader } from "../../utils/utils";
+
 /**
  * This function returns the container of the Upload Page Content
  * @returns the container of the Upload Page Content
@@ -27,9 +33,36 @@ import "./UploadComponent.scss";
 function UploadComponent() {
   //Using Navigate
   const navigate = useNavigate();
+
+  const uploadFormRef = useRef();
+
+  const postVideo = async (title, description) => {
+    const newVideo = {
+      title,
+      description,
+    };
+    axios.post(searchVideosAll, newVideo, postHeader);
+  };
   //Handling the Publish and Cancel Buttons on submit
-  const handlePublish = () => {
+  const handlePublish = (event) => {
+    event.preventDefault();
+
+    const uploadForm = uploadFormRef.current;
+    const title = uploadForm.title.value;
+    const description = uploadForm.desc.value;
+    const titleInput = uploadForm.title;
+    const descInput = uploadForm.desc;
+
+    if (title === "" || description === "") {
+      alert("Please fill all values");
+      return;
+      //Will figure out the error styling
+    }
+
+    postVideo(title, description);
+    uploadForm.reset();
     alert("Video Uploaded");
+
     navigate("/");
   };
   const handleCancel = () => {
@@ -38,7 +71,7 @@ function UploadComponent() {
   };
   //Returns the container of the Upload Page Content
   return (
-    <form className="uploadForm">
+    <form className="uploadForm" ref={uploadFormRef}>
       <div className="uploadForm__topContent">
         <div className="uploadForm__leftContent">
           <h2 className="uploadForm__title">VIDEO THUMBNAIL</h2>

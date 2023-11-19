@@ -29,6 +29,8 @@ export const getVideoList = (videoId, videoArray) => {
   return videoArray.filter((video) => video.id !== videoId);
 };
 
+export const postHeader = { "Content-Type": "application/json" };
+
 //Convert data to real-time date
 export function convertDate(time) {
   let newMoment = moment(time).startOf("hour").fromNow();
