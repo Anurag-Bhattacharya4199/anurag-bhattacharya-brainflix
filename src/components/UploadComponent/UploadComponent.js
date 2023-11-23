@@ -20,21 +20,20 @@ import UploadVideoThumbnail from "../../assets/images/Upload-video-preview.jpg";
 //Importing the stylesheet of this file
 import "./UploadComponent.scss";
 
-import { useRef } from "react";
-
 import axios from "axios";
 
 import { searchVideosAll, postHeader } from "../../utils/utils";
+import { useState } from "react";
 
 /**
  * This function returns the container of the Upload Page Content
  * @returns the container of the Upload Page Content
  */
 function UploadComponent() {
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
   //Using Navigate
   const navigate = useNavigate();
-
-  const uploadFormRef = useRef();
 
   const postVideo = async (title, description) => {
     const newVideo = {
@@ -43,35 +42,68 @@ function UploadComponent() {
     };
     axios.post(searchVideosAll, newVideo, postHeader);
   };
-  //Handling the Publish and Cancel Buttons on submit
-  const handlePublish = (event) => {
-    event.preventDefault();
 
-    const uploadForm = uploadFormRef.current;
-    const title = uploadForm.title.value;
-    const description = uploadForm.desc.value;
-    const titleInput = uploadForm.title;
-    const descInput = uploadForm.desc;
+  const handleChangeTitle = (event) => {
+    const title = event.target.value;
+    setTitle(title);
+  };
 
-    if (title === "" || description === "") {
-      alert("Please fill all values");
-      return;
-      //Will figure out the error styling
+  const handleChangeDesc = (event) => {
+    const desc = event.target.value;
+    setDesc(desc);
+  };
+
+  const isVideoTitleValid = () => {
+    if (title === "") {
+      return false;
+    }
+    return true;
+  };
+
+  const isVideoDescValid = () => {
+    if (desc === "") {
+      return false;
+    }
+    return true;
+  };
+
+  const isFormValid = () => {
+    if (!title || !desc) {
+      return false;
     }
 
-    postVideo(title, description);
-    uploadForm.reset();
-    alert("Video Uploaded");
+    if (!isVideoTitleValid()) {
+      return false;
+    }
 
-    navigate("/");
+    if (!isVideoDescValid()) {
+      return false;
+    }
+
+    return true;
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (isFormValid()) {
+      postVideo(title, desc);
+      alert("Video Uploaded");
+      navigate("/");
+    } else {
+      alert(
+        "Video Upload Unsuccessful, You have errors in your form! Please Fix!"
+      );
+    }
+  };
+
   const handleCancel = () => {
     alert("Video Upload Cancelled");
     navigate("/");
   };
   //Returns the container of the Upload Page Content
   return (
-    <form className="uploadForm" ref={uploadFormRef}>
+    <form className="uploadForm" onSubmit={handleSubmit}>
       <div className="uploadForm__topContent">
         <div className="uploadForm__leftContent">
           <h2 className="uploadForm__title">VIDEO THUMBNAIL</h2>
@@ -84,26 +116,32 @@ function UploadComponent() {
         <div className="uploadForm__rightContent">
           <label className="uploadForm__videoTitle">TITLE YOUR VIDEO</label>
           <input
-            className="uploadForm__videoTitleInp"
+            className={`uploadForm__videoTitleInp ${
+              isVideoTitleValid() ? "" : "uploadForm__invalidInput"
+            }`}
             name="title"
             for="title"
+            value={title}
+            onChange={handleChangeTitle}
             placeholder="Add a title to your video"
           />
           <label className="uploadForm__descTitle">
             ADD A VIDEO DESCRIPTION
           </label>
           <input
-            className="uploadForm__descInp"
+            className={`uploadForm__descInp ${
+              isVideoDescValid() ? "" : "uploadForm__invalidInput"
+            }`}
             name="desc"
             for="desc"
+            value={desc}
+            onChange={handleChangeDesc}
             placeholder="Add a description to your video"
           />
         </div>
       </div>
       <div className="uploadForm__buttons">
-        <button className="uploadForm__publish" onClick={handlePublish}>
-          PUBLISH
-        </button>
+        <button className="uploadForm__publish">PUBLISH</button>
         <button className="uploadForm__cancel" onClick={handleCancel}>
           CANCEL
         </button>

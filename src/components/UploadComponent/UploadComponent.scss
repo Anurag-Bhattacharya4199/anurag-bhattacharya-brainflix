@@ -59,7 +59,7 @@ Diving Deeper Notes:
       left: 1rem;
     }
     //Styles for when input is focused
-    &:focus {
+    &:active {
       border: 2px solid $BrainFlix-Blue;
     }
   }
@@ -82,6 +82,10 @@ Diving Deeper Notes:
       position: absolute;
       top: 1rem;
       left: 1rem;
+    }
+
+    &:active {
+      border: 2px solid $BrainFlix-Blue;
     }
   }
 
@@ -117,6 +121,10 @@ Diving Deeper Notes:
       text-decoration: underline;
       cursor: pointer;
     }
+  }
+
+  &__invalidInput {
+    border: 1px solid #D22D2D;
   }
 }
 
