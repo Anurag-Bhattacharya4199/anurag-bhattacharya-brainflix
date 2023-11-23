@@ -17,6 +17,8 @@ Diving Deeper Notes:
 .hyperLink {
   text-decoration: none;
   &:hover {
+    padding: 10px;
+    transform: (1.5,0);
     border: 1px solid $BrainFlix-Blue;
   }
 }

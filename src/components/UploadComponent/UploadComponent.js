@@ -40,7 +40,11 @@ function UploadComponent() {
       title,
       description,
     };
-    axios.post(searchVideosAll, newVideo, postHeader);
+    try {
+      axios.post(searchVideosAll, newVideo, postHeader);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const handleChangeTitle = (event) => {

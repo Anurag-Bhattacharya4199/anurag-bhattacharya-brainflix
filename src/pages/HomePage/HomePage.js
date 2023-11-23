@@ -39,20 +39,28 @@ function HomePage() {
   const [videoList, setVideoList] = useState();
   const [videoInfo, setVideoInfo] = useState();
 
-  const fetchVideoList = () =>
-    axios.get(searchVideosAll).then((response) => {
-      const filteredVideos = getVideoList(videoID, response.data);
+  const fetchVideoList = async () => {
+    try {
+      const videos = await axios.get(searchVideosAll);
+      const filteredVideos = getVideoList(videoID, videos.data);
       setVideoList(filteredVideos);
-    });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
     fetchVideoList();
   }, [videoID]);
 
-  const fetchVideoInfo = () =>
-    axios.get(singleVideoData(videoID)).then((response) => {
-      setVideoInfo(response.data);
-    });
+  const fetchVideoInfo = async () => {
+    try {
+      const videoInfo = await axios.get(singleVideoData(videoID));
+      setVideoInfo(videoInfo.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
     fetchVideoInfo();

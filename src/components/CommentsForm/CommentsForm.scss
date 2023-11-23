@@ -81,6 +81,7 @@ Diving Deeper Notes:
       margin-top: 1rem;
       font-family: 'AvenirNext-Bold';
       @include text-styles(10px,20px,700);
+      border: none;
       //Styles for Submit Button Hover effort
       &:hover        
       {
