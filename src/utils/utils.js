@@ -1,13 +1,11 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 2
+Project: BrainFlix - Sprint 3
 Description:
-This is the utils.js File
-In this file, any extra functions or variables needed across the website are stored here
+- This is the utils.js
+In this file, all helper variables and/or functions are created
 Diving Deeper Notes:
-- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
-- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
-- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+- Unable to figure out the Diving Deeper parts of Sprint 3
 */
 
 //Import moment from moment package
@@ -29,6 +27,7 @@ export const getVideoList = (videoId, videoArray) => {
   return videoArray.filter((video) => video.id !== videoId);
 };
 
+//Post Header object initialized
 export const postHeader = { "Content-Type": "application/json" };
 
 //Convert data to real-time date

@@ -1,13 +1,11 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 2
+Project: BrainFlix - Sprint 3
 Description:
-This is the UploadComponent.js File
-In this file, the container of the UploadPage Content is built
+- This is the UploadComponent.js
+In this file, Form validation occurs and UploadComponent is used
 Diving Deeper Notes:
-- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
-- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
-- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+- Unable to figure out the Diving Deeper parts of Sprint 3
 */
 
 /*
@@ -20,9 +18,11 @@ import UploadVideoThumbnail from "../../assets/images/Upload-video-preview.jpg";
 //Importing the stylesheet of this file
 import "./UploadComponent.scss";
 
+//Import axios package
 import axios from "axios";
-
+//import searchVideosAll function and postHeader variable from utils folder
 import { searchVideosAll, postHeader } from "../../utils/utils";
+//Import useState package
 import { useState } from "react";
 
 /**
@@ -30,11 +30,20 @@ import { useState } from "react";
  * @returns the container of the Upload Page Content
  */
 function UploadComponent() {
+  //States for title and desc (description)
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  //Using Navigate
+
+  //States for error for inputs
+  const [error, setError] = useState({
+    titleError: false,
+    descError: false,
+  });
+
+  //Using Navigate to navigate to another component
   const navigate = useNavigate();
 
+  //POST request to server to add a new video
   const postVideo = async (title, description) => {
     const newVideo = {
       title,
@@ -47,64 +56,67 @@ function UploadComponent() {
     }
   };
 
+  //Sets the title state whenever user changes the title input value
   const handleChangeTitle = (event) => {
     const title = event.target.value;
     setTitle(title);
   };
 
+  //Sets the desc state whenever user changes the description input value
   const handleChangeDesc = (event) => {
     const desc = event.target.value;
     setDesc(desc);
   };
 
-  const isVideoTitleValid = () => {
-    if (title === "") {
-      return false;
-    }
-    return true;
-  };
-
-  const isVideoDescValid = () => {
-    if (desc === "") {
-      return false;
-    }
-    return true;
-  };
-
+  //Checks if the full form is valid
   const isFormValid = () => {
-    if (!title || !desc) {
-      return false;
+    //intializes a variable to hold whether the form is complete, intialized to true
+    let formComplete = true;
+    //Local error states for the inputs
+    let errorState = {
+      titleError: false,
+      descError: false,
+    };
+    //If the title is unfilled, error state for title becomes true and formComplete becomes false
+    if (title.length === 0) {
+      errorState.titleError = true;
+      formComplete = false;
+    }
+    //If the description is unfilled, error state for description becomes true and formComplete becomes false
+    if (desc.length === 0) {
+      errorState.descError = true;
+      formComplete = false;
     }
 
-    if (!isVideoTitleValid()) {
-      return false;
-    }
-
-    if (!isVideoDescValid()) {
-      return false;
-    }
-
-    return true;
+    //Sets the error states to the local error state object
+    setError(errorState);
+    //returns the value of formComplete
+    return formComplete;
   };
 
+  //Handles the form submission
   const handleSubmit = (event) => {
+    //Prevents from form submission refreshing the page
     event.preventDefault();
 
+    //if Form is valid, first the form is reset, post video function is called, and navigates to the Home Page
     if (isFormValid()) {
+      setTitle("");
+      setDesc("");
       postVideo(title, desc);
-      alert("Video Uploaded");
       navigate("/");
+      //There is errors, error input will be highlighted
     } else {
-      alert(
-        "Video Upload Unsuccessful, You have errors in your form! Please Fix!"
-      );
+      return;
     }
   };
 
+  //Handles when a user clicks on the Cancel button
   const handleCancel = () => {
     alert("Video Upload Cancelled");
     navigate("/");
   };
+
   //Returns the container of the Upload Page Content
   return (
     <form className="uploadForm" onSubmit={handleSubmit}>
@@ -119,9 +131,11 @@ function UploadComponent() {
         </div>
         <div className="uploadForm__rightContent">
           <label className="uploadForm__videoTitle">TITLE YOUR VIDEO</label>
+          {/*Checks if title input has any error, will show default styling or
+          error styling depending on this*/}
           <input
             className={`uploadForm__videoTitleInp ${
-              isVideoTitleValid() ? "" : "uploadForm__invalidInput"
+              error.titleError ? "uploadForm__invalidInput" : ""
             }`}
             name="title"
             for="title"
@@ -132,9 +146,11 @@ function UploadComponent() {
           <label className="uploadForm__descTitle">
             ADD A VIDEO DESCRIPTION
           </label>
+          {/*Checks if description input has any error, will show default styling or
+          error styling depending on this*/}
           <input
             className={`uploadForm__descInp ${
-              isVideoDescValid() ? "" : "uploadForm__invalidInput"
+              error.descError ? "uploadForm__invalidInput" : ""
             }`}
             name="desc"
             for="desc"

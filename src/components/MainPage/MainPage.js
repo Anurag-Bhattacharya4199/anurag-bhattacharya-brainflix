@@ -1,13 +1,11 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 2
+Project: BrainFlix - Sprint 3
 Description:
-This is the MainPage.js File
-In this file, the Main Content of the webpage are built
+- This is the MainPage.js
+In this file, All the components needed for the Main Page are created
 Diving Deeper Notes:
-- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
-- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
-- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+- Unable to figure out the Diving Deeper parts of Sprint 3
 */
 
 /*
@@ -35,7 +33,7 @@ function MainPage({ videoInfo, videoList }) {
       <section className="mainPageContent">
         <div className="mainPageContent__leftPanel">
           {videoInfo && <MainVideoInfo videoInfo={videoInfo} />}
-          <CommentsForm />
+          {<CommentsForm />}
           {videoInfo && (
             <MainVideoCommentsList videoComments={videoInfo.comments} />
           )}

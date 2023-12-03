@@ -1,13 +1,11 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 2
+Project: BrainFlix - Sprint 3
 Description:
-This is the HomePage.js File
-In this file, the home page container
+- This is the HomePage.js
+In this file, all the backend calls needed for the application are done and the MainPage component is used
 Diving Deeper Notes:
-- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
-- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
-- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+- Unable to figure out the Diving Deeper parts of Sprint 3
 */
 
 //Importing all the files needed for this file
@@ -39,6 +37,7 @@ function HomePage() {
   const [videoList, setVideoList] = useState();
   const [videoInfo, setVideoInfo] = useState();
 
+  //With Axios and UseEffect, a GET request is called to the server to get the video list
   const fetchVideoList = async () => {
     try {
       const videos = await axios.get(searchVideosAll);
@@ -53,6 +52,7 @@ function HomePage() {
     fetchVideoList();
   }, [videoID]);
 
+  //With Axios and UseEffect, a GET request is called to the server to get information of a specific video by their ID
   const fetchVideoInfo = async () => {
     try {
       const videoInfo = await axios.get(singleVideoData(videoID));
@@ -66,12 +66,15 @@ function HomePage() {
     fetchVideoInfo();
   }, [videoID]);
 
+  //Handles when the main video is changed, based on Video ID
   const handleVideoChange = (videoId) => {
     setVideoID(videoId);
   };
 
+  //Video ID is initialized using the params option given in the URL
   const { videoId } = useParams();
 
+  //With UseEffect, the handleVideoChange function is called, depending on whether the video ID equals the base Video ID or another ID
   useEffect(() => {
     if (videoId) {
       if (Object.keys(videoId).length !== 0) {
@@ -82,6 +85,7 @@ function HomePage() {
     }
   }, [videoId]);
 
+  //Returns the MainPage Component
   return (
     <MainPage
       videoList={videoList}

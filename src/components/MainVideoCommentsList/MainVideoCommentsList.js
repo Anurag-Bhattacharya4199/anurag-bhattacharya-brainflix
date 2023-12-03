@@ -1,13 +1,11 @@
 /*
 Name: Anurag Bhattacharya
-Project: BrainFlix - Sprint 2
+Project: BrainFlix - Sprint 3
 Description:
-This is the MainVideoCommentsList
-In this file, the component that holds all the comments for the videos is built
+- This is the MainVideoCommentsList.js
+In this file, the list of video comments are created through mapping of the videoComments prop
 Diving Deeper Notes:
-- I completed the Diving Deeper of Sprint 1, which is dynamic time for the video details and comment details
-- Though, it was not asked, but, in a multi-page application with routes, added a Error page for any wrong routes
-- Unable to figure out the Diving Deeper of Sprint 2 to make the Comments Form functional
+- Unable to figure out the Diving Deeper parts of Sprint 3
 */
 
 /*
